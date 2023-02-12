@@ -14,8 +14,6 @@ dom.watch();
 const hamburger = document.querySelector(".hamburger") as HTMLButtonElement;
 const menu = document.querySelector(".header__nav") as HTMLElement;
 
-// ヘッダーメニューの高さを算出する関数
-
 // ハンバーガーボタンのクリックに対してactiveクラスを付けはずしする
 hamburger.addEventListener("click", () => {
   menu.classList.toggle("active");
