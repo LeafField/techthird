@@ -22,7 +22,7 @@ hamburger.addEventListener("click", () => {
   if (menu.classList.contains("active")) {
     menu.style.height = `calc(129 / 375 * 100vw)`;
   } else {
-    menu.style.height = `0`;
+    menu.removeAttribute("style");
   }
 });
 
