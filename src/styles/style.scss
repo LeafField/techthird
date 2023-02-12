@@ -1,0 +1,33 @@
+@forward "header";
+
+@font-face {
+  font-family: "Noto Sans JP";
+  src: url(../fonts/NotoSansJP-Regular.otf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Noto Sans JP";
+  src: url(../fonts/NotoSansJP-Bold.otf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Noto Sans JP";
+  src: url(../fonts/NotoSansJP-Bold.otf);
+  font-weight: 900;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

@@ -1,0 +1,147 @@
+@use "utils" as *;
+
+// sp版ヘッダー（リキッドレイアウト）
+
+@include mq(sp) {
+  .header {
+    height: spvw(60);
+  }
+
+  .header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .header__nav {
+    position: absolute;
+    top: spvw(60);
+  }
+
+  .header__title {
+    width: spvw(105);
+    margin-left: spvw(25);
+
+    & img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .hamburger {
+    font-size: spvw(40);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: spvw(18);
+  }
+
+  .header__nav {
+    width: 100%;
+    height: spvw(129);
+    transition: all 0.6s;
+
+    height: 0;
+    overflow-y: hidden;
+
+    & ul {
+      margin-left: spvw(26);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding-top: spvw(8);
+      padding-bottom: spvw(12);
+
+      & a {
+        font-size: spvw(14);
+        line-height: 1;
+      }
+    }
+
+    &--btn {
+      display: none;
+    }
+  }
+}
+
+// pc版ヘッダー（フレキシブルレイアウト）
+
+@include mq(pc) {
+  .header {
+    height: min(rem(76), pcvw(76));
+    width: 100%;
+  }
+
+  .hamburger {
+    display: none;
+
+    & svg {
+      display: none;
+    }
+  }
+
+  .header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    max-width: 1366px;
+    margin-inline: auto;
+  }
+
+  .header__title {
+    width: min(pcvw(211), rem(211));
+    margin-left: min(pcvw(35), rem(35));
+    height: 100%;
+
+    & a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    & img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .header__nav {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    & ul {
+      display: flex;
+      margin-right: min(pcvw(50), rem(50));
+
+      gap: min(pcvw(48), rem(48));
+
+      & a {
+        font-size: min(pcvw(16), rem(16));
+      }
+
+      & li {
+        margin-bottom: rem(3);
+      }
+    }
+
+    &--btn {
+      width: min(pcvw(264), rem(264));
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #1989ff;
+      color: #fff;
+      font-weight: bold;
+      font-size: min(pcvw(16), rem(16));
+    }
+  }
+}
