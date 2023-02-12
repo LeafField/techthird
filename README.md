@@ -1,49 +1,25 @@
-このリポジトリは HTML サイト開発用のテンプレートです  
-以下のモジュールを使用しています
+# テックアカデミー独習課題上級  
 
-一気にインストール
+開発環境にwebpackを使用しています  
 
-デプロイ用
-
-個別にインストールする場合はこちら
-
-webpack 系
-
+開発環境構築
 ```console
-npm i -D webpack webpack-cli webpack-dev-server
+npm install
 ```
 
-webpack プラグイン
-
+devserver(ブラウザ立ち上げ)
 ```console
-npm i -D clean-webpack-plugin html-webpack-plugin
+npm start
 ```
 
-babel プラグイン
-
+devserver(ブラウザを立ち上げない)
 ```console
-npm i -D @babel/core @babel/preset-env @babel/preset-typescript babel-loader
+npm run dev
 ```
 
-ポリフィル
-
-````console
-npm i core-js@3 regenerator-runtime
-
-SASS 関連
-
+ビルド
 ```console
-npm i -D css-loader sass sass-loader mini-css-extract-plugin postcss postcss-loader autoprefixer
-````
-
-画像読み込み用
-
-```console
-npm i -D html-loader file-loader
+npm run build
 ```
 
-typescript
-
-```console
-npm i -D typescript ts-loader
-```
+の使用をお願いします
