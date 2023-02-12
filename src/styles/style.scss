@@ -1,22 +1,6 @@
+@forward "fonts";
 @forward "header";
-
-@font-face {
-  font-family: "Noto Sans JP";
-  src: url(../fonts/NotoSansJP-Regular.otf);
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: "Noto Sans JP";
-  src: url(../fonts/NotoSansJP-Bold.otf);
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: "Noto Sans JP";
-  src: url(../fonts/NotoSansJP-Bold.otf);
-  font-weight: 900;
-}
+@forward "hero";
 
 body {
   font-family: "Noto Sans JP", sans-serif;

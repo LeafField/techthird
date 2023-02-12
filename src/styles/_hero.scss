@@ -1,0 +1,35 @@
+@use "utils" as *;
+
+// スマホ版ヒーローセクション
+@include mq(sp) {
+  .hero {
+    width: 100%;
+    height: spvw(648);
+    position: relative;
+
+    background: linear-gradient(
+      -90deg,
+      rgb(3, 132, 245) 0%,
+      rgb(0, 104, 192) 100%
+    );
+  }
+
+  // ヒーロー画像
+  .hero__img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    clip-path: polygon(0 0, 100% 0, 100% 94.5%, 0 61%);
+
+    & img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
