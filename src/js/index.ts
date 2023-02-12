@@ -31,7 +31,7 @@ hamburger.addEventListener("click", () => {
 const removeMenu = () => {
   if (!menu.classList.contains("active")) return;
   menu.classList.remove("active");
-  menu.style.height = `0`;
+  menu.removeAttribute("style");
 };
 
 // リサイズ時ハンバーガーメニューを閉じる

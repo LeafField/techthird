@@ -29,7 +29,7 @@ module.exports = {
     index: "./src/js/index.ts",
   },
   output: {
-    path: path.resolve(__dirname, "./doc"),
+    path: path.resolve(__dirname, "./dist"),
     filename: `./js/[name].js`,
   },
   resolve: {
