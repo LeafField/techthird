@@ -32,4 +32,334 @@
       object-fit: cover;
     }
   }
+
+  // テキスト
+  .hero__left {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    inset: 0;
+
+    & h2 {
+      font-size: spvw(26);
+      font-weight: bold;
+      position: absolute;
+      top: spvw(200);
+      left: spvw(21);
+
+      & span {
+        display: block;
+        background-color: #fff;
+
+        &:nth-child(1) {
+          padding-left: spvw(3);
+          padding-bottom: spvw(4);
+          white-space: pre;
+          width: spvw(256);
+        }
+
+        &:nth-child(2) {
+          margin-top: spvw(7);
+          padding-bottom: spvw(3);
+          padding-left: spvw(3);
+          white-space: pre;
+          width: spvw(110);
+        }
+      }
+    }
+  }
+
+  .hero__text {
+    position: absolute;
+    color: #fff;
+    top: spvw(358);
+    left: spvw(20);
+    font-size: spvw(15);
+
+    & p:nth-child(1) {
+      line-height: 1.75;
+    }
+
+    & p:nth-child(2) {
+      margin-top: spvw(30);
+
+      & span {
+        margin-left: spvw(6);
+      }
+    }
+
+    & p:nth-child(3) {
+      margin-top: spvw(3);
+      padding-right: spvw(26);
+      display: flex;
+
+      & svg {
+        display: inline-block;
+        margin-top: spvw(5);
+      }
+
+      & span {
+        display: inline-block;
+        margin-left: spvw(6);
+        line-height: 1.75;
+      }
+    }
+  }
+
+  // ボタンの位置調整
+  .hero__btn {
+    margin-top: spvw(34);
+    margin-left: spvw(18);
+  }
+
+  // 丸の部分
+  .hero__right {
+    position: absolute;
+    z-index: 10;
+    top: spvw(249);
+    left: spvw(155);
+    display: flex;
+  }
+
+  .hero__copy--left {
+    width: spvw(95);
+    height: spvw(95);
+    border-radius: 50%;
+    background: linear-gradient(
+      125deg,
+      rgb(189, 250, 62) 0%,
+      rgb(220, 249, 143) 50%,
+      rgb(239, 252, 173) 100%
+    );
+    box-shadow: spvw(2.121) spvw(2.121) spvw(6) 0px rgba(0, 0, 0, 0.16);
+    color: #454545;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.2;
+    padding-bottom: spvw(1);
+
+    & span:nth-child(1) {
+      font-size: spvw(15);
+      font-weight: bold;
+      font-family: "Poppins";
+
+      & span {
+        font-family: "Noto Sans JP", sans-serif;
+      }
+    }
+
+    & span:nth-child(2) {
+      font-size: spvw(12);
+      font-weight: bold;
+    }
+  }
+
+  .hero__copy--right {
+    width: spvw(95);
+    height: spvw(95);
+    border-radius: 50%;
+    background: linear-gradient(
+      125deg,
+      rgb(189, 250, 62) 0%,
+      rgb(220, 249, 143) 50%,
+      rgb(239, 252, 173) 100%
+    );
+    box-shadow: spvw(2.121) spvw(2.121) spvw(6) 0px rgba(0, 0, 0, 0.16);
+    color: #454545;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: spvw(5);
+
+    & span {
+      font-size: spvw(12);
+      font-weight: bold;
+      white-space: nowrap;
+      line-height: 1.35;
+
+      &:nth-child(1) {
+        letter-spacing: -0.1em;
+      }
+
+      &:nth-child(2) {
+        margin-left: spvw(-7);
+        & span {
+          font-family: "Poppins";
+          font-weight: bold;
+          font-size: spvw(15);
+          letter-spacing: 0;
+        }
+      }
+    }
+  }
+}
+
+// PC版ヒーローセクション
+@include mq(pc) {
+  .hero {
+    position: relative;
+    width: 100%;
+    height: min(rem(500), pcvw(500));
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 65.2%;
+      z-index: 10;
+      background: linear-gradient(
+        -115deg,
+        rgb(3, 132, 245) 0%,
+        rgb(0, 104, 192) 100%
+      );
+
+      clip-path: polygon(0 0, 100% 0%, 73.5% 100%, 0% 100%);
+    }
+  }
+
+  .hero__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 55%;
+    height: min(rem(500), 100%);
+    z-index: 1;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top right;
+      vertical-align: bottom;
+    }
+  }
+
+  // テキスト
+  .hero__container {
+    display: flex;
+    position: relative;
+    z-index: 10;
+    justify-content: space-between;
+    height: 100%;
+
+    width: min(rem(1366), 100%);
+    margin-inline: auto;
+  }
+
+  .hero__left {
+    height: 100%;
+    padding-left: 78px;
+
+    & h2 {
+      font-size: min(rem(40), pcvw(40));
+      color: #fff;
+      font-weight: 900;
+      margin-top: min(rem(90), pcvw(90));
+      margin-left: min(rem(3), pcvw(3));
+      letter-spacing: -0.045em;
+    }
+  }
+
+  .hero__text {
+    margin-top: min(pcvw(30), rem(30));
+    color: #fff;
+    font-size: min(rem(16), pcvw(16));
+    margin-left: min(pcvw(4), rem(4));
+
+    & p:nth-child(1) {
+      line-height: 1.75;
+    }
+    & p:nth-child(2) {
+      margin-top: min(pcvw(21), rem(21));
+      & span {
+        margin-left: min(pcvw(6), rem(6));
+      }
+    }
+    & p:nth-child(3) {
+      margin-top: min(pcvw(2), rem(2));
+      & span {
+        margin-left: min(pcvw(6), rem(6));
+      }
+    }
+
+    & .hero__btn {
+      margin-top: min(pcvw(44), rem(44));
+    }
+  }
+
+  // 丸部分
+
+  .hero__right {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  %hero__copy {
+    background: linear-gradient(
+      125deg,
+      rgb(189, 250, 62) 0%,
+      rgb(220, 249, 143) 50%,
+      rgb(239, 252, 173) 100%
+    );
+    width: min(pcvw(140), rem(140));
+    height: min(pcvw(140), rem(140));
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: min(pcvw(2.121), rem(2.121)) min(pcvw(2.121), rem(2.121))
+      min(pcvw(6), rem(6)) 0px rgba(0, 0, 0, 0.16);
+    margin-bottom: min(pcvw(18), rem(18));
+  }
+
+  .hero__copy--left {
+    @extend %hero__copy;
+    margin-right: min(pcvw(10), rem(10));
+
+    & span:nth-child(1) {
+      font-family: "Poppins";
+      font-weight: bold;
+      font-size: min(pcvw(22), rem(22));
+      margin-top: min(pcvw(38), rem(38));
+      & span {
+        font-family: "Noto sans jp";
+      }
+    }
+
+    & span:nth-child(2) {
+      margin-top: rem(-1);
+      letter-spacing: -0.01em;
+      font-size: min(pcvw(15), rem(15));
+    }
+  }
+  .hero__copy--right {
+    @extend %hero__copy;
+    margin-right: min(pcvw(35), rem(35));
+
+    & span:nth-child(1) {
+      margin-top: min(pcvw(44), rem(44));
+      font-size: min(pcvw(15), rem(15));
+      white-space: nowrap;
+    }
+
+    & span:nth-child(2) {
+      margin-top: rem(-2);
+      letter-spacing: -0.05em;
+      font-size: min(pcvw(15), rem(15));
+      white-space: nowrap;
+
+      & span {
+        font-size: min(pcvw(22), rem(22));
+        font-weight: bold;
+        font-family: "Poppins";
+      }
+    }
+  }
 }

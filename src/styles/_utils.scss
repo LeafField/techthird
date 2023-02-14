@@ -28,3 +28,7 @@ $breakpoints: (
 @function per($pixel, $base) {
   @return calc($pixel / $base * 100%);
 }
+
+@function pcmin($pixel) {
+  @return min(pcvw($pixel), rem($pixel));
+}

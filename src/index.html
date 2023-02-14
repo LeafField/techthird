@@ -13,15 +13,15 @@
     <div class="header__container">
       <h1 class="header__title">
         <a href="/">
-          <img src="./images/logo.png" alt="">
+          <img src="./images/logo.png" alt="Dentatsu">
         </a>
       </h1>
       <nav class="header__nav">
         <ul>
           <li class="header__list"><a href="#">業務効率化</a></li>
-          <li class="header__list"><a href="">セキュリティ</a></li>
-          <li class="header__list"><a href="">FAQ</a></li>
-          <li class="header__list"><a href="">料金プラン</a></li>
+          <li class="header__list"><a href="#">セキュリティ</a></li>
+          <li class="header__list"><a href="#">FAQ</a></li>
+          <li class="header__list"><a href="#">料金プラン</a></li>
         </ul>
         <a class="header__nav--btn" href="#">お申し込み</a>
       </nav>
@@ -33,21 +33,32 @@
   </header>
 
   <section class="hero">
-    <div class="hero__left">
-      <h2><span>つながる、つたわる、</span><span>かなえる</span></h2>
-      <p>ビジネスの成功は手軽なIT導入から。<br>
-        少しの変化が社内改革＆業績向上をかなえます。</p>
-      <p><i class="fa-regular fa-circle-check"></i>基本機能は無料で利用可能！</p>
-      <p><i class="fa-regular fa-circle-check"></i>国内データセンターでの運用でセキュリティも安心</p>
-      <a href="#" class="hero__btn free-btn">無料で始める</a>
+    <div class="hero__container">
+
+      <div class="hero__left">
+        <h2><span>つながる、つたわる、</span><span>かなえる</span></h2>
+        <div class="hero__text">
+          <p>ビジネスの成功は手軽なIT導入から。<br>
+            少しの変化が社内改革＆業績向上をかなえます。</p>
+          <p><i class="fa-regular fa-circle-check"></i><span>基本機能は無料で利用可能！</span></p>
+          <p><i class="fa-regular fa-circle-check"></i><span>国内データセンターでの運用でセキュリティも安心</span></p>
+          <a href="#" class="hero__btn free-btn">無料ではじめる</a>
+        </div>
+      </div>
+      <div class="hero__right">
+        <div class="hero__copy--left">
+          <span>100<span>万</span>ID<br></span><span>の導入実績</span>
+        </div>
+        <div class="hero__copy--right">
+          <span>ビジネスチャット<br></span><span>利用者数<span>No.1</span></span>
+        </div>
+      </div>
     </div>
-    <div class="hero__right"></div>
     <figure class="hero__img">
       <picture>
         <source media="(max-width:767px )" srcset="./images/main_photo.jpg 1x,
-        ./images/main_photo@2x.jpg 2x" src="./images/main_photo.jpg">
-        <img srcset="./images/main_photopc.jpg 1x,./images/main_photopc@2x.jpg 2x" alt=""
-          src="./images/main_photopc.jpg">
+        ./images/main_photo@2x.jpg 2x">
+        <img srcset="./images/main_photopc.jpg 1x,./images/main_photopc@2x.jpg 2x" alt="">
       </picture>
     </figure>
   </section>

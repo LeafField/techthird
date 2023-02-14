@@ -1,10 +1,13 @@
+// スタイルのインポート
 import "ress";
 import "../styles/style.scss";
 
+// fontawesomeのインポート
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
+// fontawesomeの監視とその監視対象の追加
 library.add(faBars, faCircleCheck);
 dom.watch();
 
@@ -13,13 +16,14 @@ dom.watch();
 
 const hamburger = document.querySelector(".hamburger") as HTMLButtonElement;
 const menu = document.querySelector(".header__nav") as HTMLElement;
+const menuList = document.querySelector(".header__nav ul") as HTMLUListElement;
 
 // ハンバーガーボタンのクリックに対してactiveクラスを付けはずしする
 hamburger.addEventListener("click", () => {
   menu.classList.toggle("active");
 
   if (menu.classList.contains("active")) {
-    menu.style.height = `calc(129 / 375 * 100vw)`;
+    menu.style.height = `${menuList.clientHeight / 16}rem`;
   } else {
     menu.removeAttribute("style");
   }
