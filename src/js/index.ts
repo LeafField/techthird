@@ -7,6 +7,10 @@ import { library, dom } from "@fortawesome/fontawesome-svg-core";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
+// swiperのインポート
+import Swiper, { Navigation, Pagination } from "swiper";
+import "swiper/swiper-bundle.css";
+
 // fontawesomeの監視とその監視対象の追加
 library.add(faBars, faCircleCheck);
 dom.watch();
@@ -39,3 +43,18 @@ const removeMenu = () => {
 
 // リサイズ時ハンバーガーメニューを閉じる
 window.addEventListener("resize", removeMenu);
+
+new Swiper(".swiper", {
+  modules: [Navigation, Pagination],
+  navigation: {
+    prevEl: ".swiper-button-prev",
+    nextEl: ".swiper-button-next",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction",
+  },
+  loop: true,
+  slidesPerView: 3,
+  centeredSlides: true,
+});

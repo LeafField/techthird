@@ -1,0 +1,67 @@
+@use "utils" as *;
+
+// スライダーセクションの大枠
+
+// SP版スライダーセクション
+@include mq(sp) {
+  .slider {
+    height: spvw(377);
+    background-color: #d0e7ff;
+    width: 100%;
+  }
+
+  // セクションタイトル
+  .slider__title {
+    font-size: spvw(15);
+    padding-top: spvw(38);
+    text-align: center;
+    padding-left: spvw(8);
+    margin-right: spvw(5);
+
+    & span {
+      font-size: spvw(26);
+      color: #1989ff;
+      margin-left: spvw(5);
+      margin-right: spvw(2);
+    }
+  }
+}
+
+// pc版スライダーセクション
+@include mq(pc) {
+  .slider {
+    height: pcmin(471);
+    background-color: #d0e7ff;
+    width: 100%;
+  }
+
+  // コンテナ
+  .slider__container {
+    max-width: rem(1366);
+    margin-inline: auto;
+    height: 100%;
+  }
+
+  // セクションタイトル
+  .slider__title {
+    text-align: center;
+    font-size: pcmin(25);
+    padding-top: pcmin(62);
+    margin-left: pcmin(11);
+
+    & span {
+      font-size: pcmin(40);
+      font-weight: bold;
+      color: #1989ff;
+      margin-left: pcmin(3);
+      margin-right: pcmin(3);
+    }
+  }
+}
+
+// スライダーの中身
+.slider__tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
