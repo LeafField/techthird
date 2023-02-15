@@ -55,6 +55,11 @@ new Swiper(".swiper", {
     type: "fraction",
   },
   loop: true,
-  slidesPerView: 3,
-  centeredSlides: true,
+  slidesPerView: 1,
+  breakpoints: {
+    768: {
+      slidesPerView: 3,
+      centeredSlides: true,
+    },
+  },
 });
