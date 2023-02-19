@@ -1,0 +1,64 @@
+@use "utils" as *;
+
+// セクションの大枠
+.work {
+  height: spvw(1403);
+  width: 100%;
+}
+
+// セクションタイトル
+.work__title {
+  margin-top: spvw(32);
+  font-size: spvw(26);
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+// セクションコンテナ
+.work__container {
+  padding-left: 28px;
+  padding-right: 27px;
+  display: grid;
+  row-gap: spvw(20);
+  margin-top: spvw(33);
+}
+
+// 各カード
+.work__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: spvw(10);
+  background-color: #1989ff;
+  padding-top: 40px;
+  padding-bottom: 54px;
+}
+
+// カード内イメージ
+.work__img {
+  width: 120px;
+  height: 120px;
+  & img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+// カード内テキスト
+
+.work__text {
+  &--top {
+    font-size: spvw(14);
+    color: #fff;
+    margin-top: spvw(21);
+  }
+
+  &--bottom {
+    color: #fff;
+    font-size: spvw(16);
+    margin-top: spvw(36);
+  }
+}

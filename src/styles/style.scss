@@ -3,6 +3,11 @@
 @forward "hero";
 @forward "button";
 @forward "slider";
+@forward "work";
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: "Noto Sans JP", sans-serif;
