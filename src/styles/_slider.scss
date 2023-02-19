@@ -8,6 +8,7 @@
     height: spvw(377);
     background-color: #d0e7ff;
     width: 100%;
+    position: relative;
   }
 
   // セクションタイトル
@@ -33,6 +34,7 @@
     height: pcmin(471);
     background-color: #d0e7ff;
     width: 100%;
+    position: relative;
   }
 
   // コンテナ
@@ -64,4 +66,89 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: spvw(262);
+  margin-inline: auto;
+
+  @include mq(pc) {
+    width: pcmin(361);
+  }
+
+  & img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+// スライダーのページネーション周りの実装
+
+// ページネーションコンテナ
+.slider__pagination {
+  width: per(260, 375);
+  height: spvw(87);
+  margin-inline: auto;
+  // margin-top: spvw(4);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @include mq(pc) {
+    width: pcmin(358);
+    height: pcmin(90);
+    margin-top: 0;
+  }
+}
+
+// スライダーのナビゲーションボタン
+.slider__button {
+  width: spvw(60);
+  height: spvw(61);
+
+  @include mq(pc) {
+    width: pcmin(60);
+    height: pcmin(61);
+  }
+
+  & img {
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+  }
+}
+
+// 数字
+.swiper-pagination {
+  font-size: spvw(25) !important;
+  @include mq(pc) {
+    font-size: pcmin(25) !important;
+  }
+
+  font-weight: bold !important;
+  width: max-content !important;
+  position: relative !important;
+  margin-bottom: 6px;
+
+  .swiper-pagination-current {
+    margin-right: -5px;
+  }
+  .swiper-pagination-total {
+    margin-left: -5px;
+  }
+
+  .swiper-pagination-current::before {
+    content: "0";
+  }
+  .swiper-pagination-total::before {
+    content: "0";
+  }
+}
+
+// swiperの位置調整
+.swiper {
+  margin-top: spvw(41);
+
+  @include mq(pc) {
+    margin-top: pcmin(31);
+  }
 }

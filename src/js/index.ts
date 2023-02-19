@@ -44,7 +44,7 @@ const removeMenu = () => {
 // リサイズ時ハンバーガーメニューを閉じる
 window.addEventListener("resize", removeMenu);
 
-new Swiper(".swiper", {
+const swiper = new Swiper(".swiper", {
   modules: [Navigation, Pagination],
   navigation: {
     prevEl: ".swiper-button-prev",
@@ -56,6 +56,7 @@ new Swiper(".swiper", {
   },
   loop: true,
   slidesPerView: 1,
+  centeredSlides: true,
   breakpoints: {
     768: {
       slidesPerView: 3,
@@ -63,3 +64,16 @@ new Swiper(".swiper", {
     },
   },
 });
+
+// スライダーナビゲーションの実装
+// 必要な要素の取得
+const prev = document.querySelector(
+  ".slider__button--prev img"
+) as HTMLImageElement;
+const next = document.querySelector(
+  ".slider__button--next img"
+) as HTMLImageElement;
+
+// 各ボタンへスライド機能の追加
+prev.addEventListener("click", () => swiper.slidePrev());
+next.addEventListener("click", () => swiper.slideNext());
