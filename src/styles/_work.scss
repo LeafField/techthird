@@ -4,6 +4,10 @@
 .work {
   height: spvw(1403);
   width: 100%;
+
+  @include mq(pc) {
+    padding-inline: rem(25);
+  }
 }
 
 // セクションタイトル
@@ -13,15 +17,33 @@
   font-weight: 900;
   text-align: center;
   letter-spacing: 0.02em;
+
+  @include mq(pc) {
+    font-size: pcmin(40);
+    margin-top: 89px;
+    letter-spacing: 0.015em;
+    & br {
+      display: contents;
+    }
+  }
 }
 
 // セクションコンテナ
 .work__container {
-  padding-left: 28px;
-  padding-right: 27px;
+  padding-left: rem(28);
+  padding-right: rem(27);
   display: grid;
-  row-gap: spvw(20);
+  gap: spvw(20);
   margin-top: spvw(33);
+
+  @include mq(pc) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: pcmin(20);
+    padding-inline: 0;
+    margin-top: pcmin(72);
+    margin-inline: auto;
+    width: pcmin(1078);
+  }
 }
 
 // 各カード
@@ -32,14 +54,25 @@
   text-align: center;
   border-radius: spvw(10);
   background-color: #1989ff;
-  padding-top: 40px;
-  padding-bottom: 54px;
+  padding-top: spvw(40);
+  padding-bottom: spvw(54);
+
+  @include mq(pc) {
+    padding-top: pcmin(59);
+    padding-bottom: pcmin(40);
+    border-radius: pcmin(10);
+  }
 }
 
 // カード内イメージ
 .work__img {
-  width: 120px;
-  height: 120px;
+  width: spvw(120);
+  height: spvw(120);
+  @include mq(pc) {
+    width: pcmin(168);
+    height: pcmin(168);
+  }
+
   & img {
     width: 100%;
     height: auto;
@@ -54,11 +87,75 @@
     font-size: spvw(14);
     color: #fff;
     margin-top: spvw(21);
+    font-weight: bold;
+
+    @include mq(pc) {
+      font-size: pcmin(16);
+      margin-top: pcmin(35);
+    }
   }
 
   &--bottom {
     color: #fff;
     font-size: spvw(16);
     margin-top: spvw(36);
+    font-weight: bold;
+
+    @include mq(pc) {
+      font-size: pcmin(23);
+      margin-top: pcmin(44);
+      width: pcmin(280);
+      line-height: 1.21;
+    }
+  }
+}
+
+// セクションのボトムテキスト
+// pc用コンテナ
+.work__bottom {
+  @include mq(pc) {
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
+
+    // width: 1014px;
+  }
+}
+
+// ロゴ
+.work__logo {
+  width: spvw(129);
+  display: block;
+  margin-inline: auto;
+  margin-top: spvw(60);
+
+  @include mq(pc) {
+    width: pcmin(211);
+    margin-inline: 0;
+    margin-top: pcmin(76);
+    margin-left: pcmin(1);
+  }
+
+  & img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+// ロゴ下のテキスト
+.work__bottomText {
+  font-size: spvw(15);
+  font-weight: bold;
+  margin-top: spvw(20);
+  margin-inline: auto;
+  width: 78%;
+
+  @include mq(pc) {
+    font-size: pcmin(16);
+    margin-inline: 0;
+    width: pcmin(754);
+    margin-left: pcmin(45);
+    margin-top: pcmin(68);
   }
 }
