@@ -7,6 +7,7 @@
 
   @include mq(pc) {
     padding-inline: rem(25);
+    height: pcmin(881);
   }
 }
 
