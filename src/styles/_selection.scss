@@ -1,0 +1,227 @@
+@use "utils" as *;
+
+// セクションの大枠
+.selection {
+  background-color: #d0e7ff;
+  width: 100%;
+}
+
+// セクションタイトル
+.selection__title {
+  font-size: spvw(26);
+  font-weight: 900;
+  text-align: center;
+  padding-top: spvw(26);
+
+  @include mq(pc) {
+    font-size: pcmin(40);
+    padding-top: pcmin(88);
+  }
+}
+
+// pc用セクションコンテナ
+.selection__container {
+  @include mq(sp) {
+    margin-inline: auto;
+    padding-left: rem(28);
+    padding-right: rem(27);
+  }
+
+  @include mq(pc) {
+    width: pcmin(1000);
+    margin-inline: auto;
+  }
+}
+
+// セクションサブタイトル
+.selection__subtitle--one {
+  margin-top: spvw(18);
+  position: relative;
+  text-align: center;
+
+  @include mq(pc) {
+    margin-top: 97px;
+    text-align: left;
+  }
+
+  .subtitle__number {
+    font-size: spvw(58);
+    font-family: "Oleo Script", cursive;
+    color: #b1d3ff;
+
+    @include mq(pc) {
+      font-size: pcmin(120);
+      position: absolute;
+      top: -100px;
+      z-index: 0;
+    }
+  }
+
+  .subtitle__text {
+    letter-spacing: -0.015em;
+    margin-top: spvw(3);
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+
+    @include mq(pc) {
+      font-size: pcmin(30);
+      letter-spacing: 0.01em;
+    }
+  }
+}
+
+// サブタイトル下のテキスト
+.selection__subtitle--under {
+  font-size: spvw(15);
+  margin-top: spvw(15);
+}
+
+// アコーディオンパネル
+.selection__information {
+  margin-top: spvw(11);
+}
+
+// タブ
+.information__tab {
+  width: 100%;
+  height: spvw(60);
+  background-color: #fff;
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & span {
+    margin-bottom: spvw(4);
+  }
+}
+
+// アコーディオンパネル内部
+.information__accordion {
+  background-color: #fff;
+}
+
+// 内部のタイトル
+.information__title {
+  padding-top: spvw(20);
+  padding-left: spvw(15);
+  width: 94%;
+  font-size: spvw(17);
+}
+
+// タイトル下
+.infomation__titleUnder {
+  font-size: spvw(15);
+  width: 89%;
+
+  &--one {
+    @extend .infomation__titleUnder;
+    margin-top: spvw(25);
+    margin-left: spvw(16);
+  }
+
+  &--two {
+    @extend .infomation__titleUnder;
+    margin-left: spvw(15);
+  }
+
+  &--three {
+    @extend .infomation__titleUnder;
+    margin-left: spvw(15);
+  }
+}
+
+// 横並びのアイコン
+.infomation__icons {
+  position: relative;
+  height: 200px; //仮設定
+}
+
+// 各アイコン
+.icons__item {
+  // font-size: 40px;
+  color: #1989ff;
+  width: 77px;
+  text-align: center;
+
+  // 一個目
+  &--one {
+    @extend .icons__item;
+    width: spvw(78);
+    position: absolute;
+    top: spvw(29);
+    left: spvw(19);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & .icons__top {
+      width: spvw(45);
+      & img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    & .icons__text {
+      margin-top: spvw(22);
+    }
+  }
+
+  &--two {
+    @extend .icons__item;
+    width: spvw(78);
+    position: absolute;
+    top: spvw(24);
+    left: spvw(121);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & .icons__top {
+      width: spvw(35);
+      & img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    & .icons__text {
+      margin-top: spvw(18);
+    }
+  }
+
+  &--three {
+    @extend .icons__item;
+    width: spvw(83);
+    position: absolute;
+    top: spvw(26);
+    left: spvw(220);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & .icons__top {
+      width: spvw(67);
+      & img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    & .icons__text {
+      margin-top: spvw(17);
+    }
+  }
+}
+
+// その下のテキスト
+.icons__text {
+  font-size: 13px;
+  color: #000;
+  font-weight: bold;
+}

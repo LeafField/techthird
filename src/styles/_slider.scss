@@ -71,6 +71,7 @@
 
   @include mq(pc) {
     width: pcmin(361);
+    margin-inline: 0;
   }
 
   & img {

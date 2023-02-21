@@ -4,7 +4,13 @@ import "../styles/style.scss";
 
 // fontawesomeのインポート
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faFolderOpen,
+  faAddressBook,
+  faDesktop,
+  faMobileScreenButton,
+} from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
 // swiperのインポート
@@ -12,7 +18,14 @@ import Swiper, { Navigation, Pagination } from "swiper";
 import "swiper/swiper-bundle.css";
 
 // fontawesomeの監視とその監視対象の追加
-library.add(faBars, faCircleCheck);
+library.add(
+  faBars,
+  faCircleCheck,
+  faAddressBook,
+  faFolderOpen,
+  faDesktop,
+  faMobileScreenButton
+);
 dom.watch();
 
 // ハンバーガーメニューの実装
@@ -61,6 +74,7 @@ const swiper = new Swiper(".swiper", {
     768: {
       slidesPerView: 3,
       centeredSlides: true,
+      spaceBetween: 74,
     },
   },
 });

@@ -2,12 +2,12 @@
 
 // セクションの大枠
 .work {
-  height: spvw(1403);
+  height: spvw(1373);
   width: 100%;
 
   @include mq(pc) {
     padding-inline: rem(25);
-    height: pcmin(881);
+    height: pcmin(794);
   }
 }
 
