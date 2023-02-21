@@ -20,7 +20,7 @@
 }
 
 // pc用セクションコンテナ
-.selection__container {
+.selection__container--first {
   @include mq(sp) {
     margin-inline: auto;
     padding-left: rem(28);
@@ -33,6 +33,22 @@
   }
 }
 
+// 2つめのコンテナ
+.selection__container--second {
+  @include mq(sp) {
+    padding-top: spvw(13);
+    padding-left: rem(28);
+    padding-right: rem(27);
+    margin-inline: auto;
+  }
+
+  @include mq(pc) {
+    width: pcmin(1000);
+    margin-inline: auto;
+    padding-top: pcmin(109);
+  }
+}
+
 // セクションサブタイトル
 .selection__subtitle--one {
   margin-top: spvw(18);
@@ -40,7 +56,7 @@
   text-align: center;
 
   @include mq(pc) {
-    margin-top: 97px;
+    margin-top: pcmin(97);
     text-align: left;
   }
 
@@ -52,7 +68,7 @@
     @include mq(pc) {
       font-size: pcmin(120);
       position: absolute;
-      top: -100px;
+      top: max(rem(-100), pcvw(-100));
       z-index: 0;
     }
   }
@@ -67,6 +83,10 @@
     @include mq(pc) {
       font-size: pcmin(30);
       letter-spacing: 0.01em;
+
+      & br {
+        display: contents;
+      }
     }
   }
 }
@@ -100,24 +120,64 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: spvw(16);
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
 
   @include mq(pc) {
     height: pcmin(60);
     font-size: pcmin(18);
   }
 
-  & span {
+  & .tab__text {
     margin-bottom: spvw(4);
 
     @include mq(pc) {
       margin-bottom: pcmin(5);
     }
   }
+
+  & .tab__icon {
+    display: block;
+    position: absolute;
+    width: spvw(13);
+    height: spvw(3);
+    background-color: #000;
+    top: spvw(25);
+    right: spvw(21);
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+
+      background-color: #000;
+      transform: rotate(90deg);
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    @include mq(pc) {
+      width: pcmin(15);
+      height: pcmin(3);
+      top: pcmin(25);
+      right: pcmin(23);
+    }
+  }
+
+  &.active .tab__icon::before {
+    transform: none;
+  }
 }
 
 // アコーディオンパネル内部
 .information__accordion {
   background-color: #fff;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.6s ease;
 }
 
 // 内部のタイトル
@@ -170,102 +230,266 @@
 
     &--three {
       @extend .infomation__titleUnder;
-      margin-left: 67px;
-      margin-top: 3px;
+      margin-left: pcmin(67);
+      margin-top: pcmin(3);
       letter-spacing: 0.0035em;
     }
   }
 }
 
-// 横並びのアイコン
-.infomation__icons {
+@include mq(sp) {
+  // 横並びのアイコン
+  .infomation__icons {
+    position: relative;
+    height: spvw(163); //仮設定
+  }
+
+  // 各アイコン
+  .icons__item {
+    color: #1989ff;
+    width: 77px;
+    text-align: center;
+
+    // 一個目
+    &--one {
+      @extend .icons__item;
+      width: spvw(78);
+      position: absolute;
+      top: spvw(29);
+      left: spvw(19);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      & .icons__top {
+        width: spvw(45);
+        & img {
+          display: block;
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+      }
+
+      & .icons__text {
+        margin-top: spvw(22);
+      }
+    }
+
+    &--two {
+      @extend .icons__item;
+      width: spvw(78);
+      position: absolute;
+      top: spvw(24);
+      left: spvw(121);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      & .icons__top {
+        width: spvw(35);
+        & img {
+          display: block;
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+      }
+
+      & .icons__text {
+        margin-top: spvw(18);
+      }
+    }
+
+    &--three {
+      @extend .icons__item;
+      width: spvw(83);
+      position: absolute;
+      top: spvw(26);
+      left: spvw(220);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      & .icons__top {
+        width: spvw(67);
+        & img {
+          display: block;
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+      }
+
+      & .icons__text {
+        margin-top: spvw(17);
+      }
+    }
+  }
+
+  // その下のテキスト
+  .icons__text {
+    font-size: 13px;
+    color: #000;
+    font-weight: bold;
+  }
+}
+
+// pc版アイコンズ
+@include mq(pc) {
+  .infomation__icons {
+    position: relative;
+    height: pcmin(213);
+  }
+
+  .icons__item--one {
+    position: absolute;
+    top: pcmin(66);
+    left: pcmin(137);
+    text-align: center;
+
+    & .icons__top {
+      width: pcmin(79);
+      margin-inline: auto;
+
+      & img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    & .icons__text {
+      margin-top: pcmin(20);
+      font-size: pcmin(15);
+      font-weight: bold;
+    }
+  }
+
+  .icons__item--two {
+    position: absolute;
+    top: pcmin(58);
+    left: pcmin(417);
+    text-align: center;
+
+    & .icons__top {
+      width: pcmin(62);
+      margin-inline: auto;
+
+      & img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+    }
+
+    & .icons__text {
+      margin-top: pcmin(12);
+      font-size: pcmin(15);
+      font-weight: bold;
+    }
+  }
+
+  .icons__item--three {
+    position: absolute;
+    top: pcmin(58);
+    left: pcmin(687);
+
+    & .icons__top {
+      width: pcmin(118);
+      margin-inline: auto;
+
+      & img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+    }
+
+    & .icons__text {
+      margin-top: pcmin(12);
+      font-size: pcmin(15);
+      font-weight: bold;
+    }
+  }
+}
+
+// グリッドコンテナ
+.information__grid {
+  display: grid;
+  gap: spvw(15);
+  padding-bottom: spvw(25);
+
+  @include mq(pc) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: pcmin(865);
+    margin-inline: auto;
+    padding-right: 1px;
+    padding-bottom: pcmin(70);
+  }
+}
+
+// コンテナ内カード
+.information__card {
+  width: spvw(275);
+  border: solid 1px #1989ff;
+  justify-self: center;
   position: relative;
-  height: 200px; //仮設定
+
+  @include mq(pc) {
+    width: pcmin(275);
+    height: pcmin(275);
+  }
 }
 
-// 各アイコン
-.icons__item {
-  color: #1989ff;
-  width: 77px;
+// カードナンバー
+.card__number {
+  position: absolute;
+  display: block;
+  width: spvw(84);
+  height: spvw(84);
+  background: #1989ff;
+  clip-path: polygon(100% 0, 0 0, 0 100%);
+  color: #fff;
+  font-size: spvw(30);
+  padding-left: spvw(16);
+  z-index: 0;
+
+  @include mq(pc) {
+    font-size: pcmin(30);
+    padding-left: pcmin(12);
+    padding-top: rem(1);
+    width: pcmin(84);
+    height: pcmin(84);
+  }
+}
+
+// カードのトップテキスト
+.card__top {
   text-align: center;
+  font-size: spvw(17);
+  font-weight: bold;
+  margin-top: 28px;
 
-  // 一個目
-  &--one {
-    @extend .icons__item;
-    width: spvw(78);
-    position: absolute;
-    top: spvw(29);
-    left: spvw(19);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    & .icons__top {
-      width: spvw(45);
-      & img {
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-    }
-
-    & .icons__text {
-      margin-top: spvw(22);
-    }
-  }
-
-  &--two {
-    @extend .icons__item;
-    width: spvw(78);
-    position: absolute;
-    top: spvw(24);
-    left: spvw(121);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    & .icons__top {
-      width: spvw(35);
-      & img {
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-    }
-
-    & .icons__text {
-      margin-top: spvw(18);
-    }
-  }
-
-  &--three {
-    @extend .icons__item;
-    width: spvw(83);
-    position: absolute;
-    top: spvw(26);
-    left: spvw(220);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    & .icons__top {
-      width: spvw(67);
-      & img {
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-    }
-
-    & .icons__text {
-      margin-top: spvw(17);
-    }
+  @include mq(pc) {
+    font-size: pcmin(18);
+    margin-top: pcmin(39);
   }
 }
 
-// その下のテキスト
-.icons__text {
-  font-size: 13px;
-  color: #000;
-  font-weight: bold;
+// カードの下のテキスト
+.card__text {
+  margin-top: 20px;
+  width: 224px;
+  font-size: 14px;
+  margin-inline: auto;
+  line-height: 1.5;
+  margin-bottom: 35px;
+
+  @include mq(pc) {
+    font-size: pcmin(16);
+    margin-top: pcmin(31);
+    width: pcmin(224);
+    word-break: break-all;
+    white-space: normal;
+    line-break: anywhere;
+  }
 }

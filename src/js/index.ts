@@ -1,31 +1,18 @@
 // スタイルのインポート
 import "ress";
 import "../styles/style.scss";
+import "swiper/swiper-bundle.css";
 
 // fontawesomeのインポート
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import {
-  faBars,
-  faFolderOpen,
-  faAddressBook,
-  faDesktop,
-  faMobileScreenButton,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
 // swiperのインポート
 import Swiper, { Navigation, Pagination } from "swiper";
-import "swiper/swiper-bundle.css";
 
 // fontawesomeの監視とその監視対象の追加
-library.add(
-  faBars,
-  faCircleCheck,
-  faAddressBook,
-  faFolderOpen,
-  faDesktop,
-  faMobileScreenButton
-);
+library.add(faBars, faCircleCheck);
 dom.watch();
 
 // ハンバーガーメニューの実装
@@ -74,7 +61,6 @@ const swiper = new Swiper(".swiper", {
     768: {
       slidesPerView: 3,
       centeredSlides: true,
-      // spaceBetween: 74,
     },
   },
 });
@@ -91,3 +77,43 @@ const next = document.querySelector(
 // 各ボタンへスライド機能の追加
 prev.addEventListener("click", () => swiper.slidePrev());
 next.addEventListener("click", () => swiper.slideNext());
+
+// アコーディオン
+// 必要な要素の取得
+const tabs = document.querySelectorAll(
+  ".information__tab"
+) as NodeListOf<HTMLDivElement>;
+const accordions = document.querySelectorAll(
+  ".information__accordion"
+) as NodeListOf<HTMLDivElement>;
+const accordionInner = document.querySelectorAll(
+  ".information__container"
+) as NodeListOf<HTMLDivElement>;
+
+// 各アコーディオンパネルの開閉プログラム
+// indexは各要素の順番、toggleはtrueでパネルの開閉、falseで要素の高さの再計算
+const accordionCallback = (index: number, toggle: boolean) => {
+  const accordion = accordions[index];
+  const tab = tabs[index];
+  const inner = accordionInner[index];
+
+  if (toggle) {
+    tab.classList.toggle("active");
+  }
+
+  if (tab.classList.contains("active")) {
+    accordion.style.height = `${inner.clientHeight}px`;
+  } else {
+    accordion?.removeAttribute("style");
+  }
+};
+
+// 各タブに開閉プログラムを適用
+tabs.forEach((tab, index) => {
+  tab.addEventListener("click", () => accordionCallback(index, true));
+});
+
+// リサイズ時に高さを再計算
+window.addEventListener("resize", () => {
+  tabs.forEach((_, index) => accordionCallback(index, false));
+});
