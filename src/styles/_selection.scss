@@ -75,11 +75,20 @@
 .selection__subtitle--under {
   font-size: spvw(15);
   margin-top: spvw(15);
+
+  @include mq(pc) {
+    font-size: pcmin(18);
+    margin-top: pcmin(19);
+  }
 }
 
 // アコーディオンパネル
 .selection__information {
   margin-top: spvw(11);
+
+  @include mq(pc) {
+    margin-top: pcmin(50);
+  }
 }
 
 // タブ
@@ -92,8 +101,17 @@
   align-items: center;
   justify-content: center;
 
+  @include mq(pc) {
+    height: pcmin(60);
+    font-size: pcmin(18);
+  }
+
   & span {
     margin-bottom: spvw(4);
+
+    @include mq(pc) {
+      margin-bottom: pcmin(5);
+    }
   }
 }
 
@@ -108,6 +126,12 @@
   padding-left: spvw(15);
   width: 94%;
   font-size: spvw(17);
+
+  @include mq(pc) {
+    font-size: pcmin(23);
+    padding-top: pcmin(60);
+    padding-left: pcmin(67);
+  }
 }
 
 // タイトル下
@@ -130,6 +154,27 @@
     @extend .infomation__titleUnder;
     margin-left: spvw(15);
   }
+
+  @include mq(pc) {
+    font-size: pcmin(18);
+    margin-left: pcmin(67);
+
+    &--one {
+      @extend .infomation__titleUnder;
+      margin-top: pcmin(21);
+    }
+
+    &--two {
+      @extend .infomation__titleUnder;
+    }
+
+    &--three {
+      @extend .infomation__titleUnder;
+      margin-left: 67px;
+      margin-top: 3px;
+      letter-spacing: 0.0035em;
+    }
+  }
 }
 
 // 横並びのアイコン
@@ -140,7 +185,6 @@
 
 // 各アイコン
 .icons__item {
-  // font-size: 40px;
   color: #1989ff;
   width: 77px;
   text-align: center;
