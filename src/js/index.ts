@@ -74,7 +74,7 @@ const swiper = new Swiper(".swiper", {
     768: {
       slidesPerView: 3,
       centeredSlides: true,
-      spaceBetween: 74,
+      // spaceBetween: 74,
     },
   },
 });

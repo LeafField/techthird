@@ -71,12 +71,12 @@
 
   @include mq(pc) {
     width: pcmin(361);
-    margin-inline: 0;
   }
 
   & img {
     width: 100%;
     object-fit: cover;
+    display: block;
   }
 }
 
@@ -151,5 +151,6 @@
 
   @include mq(pc) {
     margin-top: pcmin(31);
+    width: 93%;
   }
 }
