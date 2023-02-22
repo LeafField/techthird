@@ -34,7 +34,6 @@ hamburger.addEventListener("click", () => {
 });
 
 // ハンバーガーメニューを閉じるイベントリスナーのコールバック関数
-
 const removeMenu = () => {
   if (!menu.classList.contains("active")) return;
   menu.classList.remove("active");
@@ -44,6 +43,7 @@ const removeMenu = () => {
 // リサイズ時ハンバーガーメニューを閉じる
 window.addEventListener("resize", removeMenu);
 
+// swiperのイニシャライズ
 const swiper = new Swiper(".swiper", {
   modules: [Navigation, Pagination],
   navigation: {
@@ -81,13 +81,13 @@ next.addEventListener("click", () => swiper.slideNext());
 // アコーディオン
 // 必要な要素の取得
 const tabs = document.querySelectorAll(
-  ".information__tab"
+  ".accordion__tab"
 ) as NodeListOf<HTMLDivElement>;
 const accordions = document.querySelectorAll(
-  ".information__accordion"
+  ".accordion__panel"
 ) as NodeListOf<HTMLDivElement>;
 const accordionInner = document.querySelectorAll(
-  ".information__container"
+  ".accordion__inner"
 ) as NodeListOf<HTMLDivElement>;
 
 // 各アコーディオンパネルの開閉プログラム
@@ -102,7 +102,7 @@ const accordionCallback = (index: number, toggle: boolean) => {
   }
 
   if (tab.classList.contains("active")) {
-    accordion.style.height = `${inner.clientHeight}px`;
+    accordion.style.height = `${inner.clientHeight / 16}rem`;
   } else {
     accordion?.removeAttribute("style");
   }
