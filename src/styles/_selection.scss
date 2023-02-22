@@ -4,6 +4,11 @@
 .selection {
   background-color: #d0e7ff;
   width: 100%;
+  padding-bottom: spvw(40);
+
+  @include mq(pc) {
+    padding-bottom: pcmin(100);
+  }
 }
 
 // セクションタイトル
@@ -326,9 +331,66 @@
 
   // その下のテキスト
   .icons__text {
-    font-size: 13px;
+    font-size: spvw(13);
     color: #000;
     font-weight: bold;
+  }
+}
+
+// アコーディオン二枚目のアイコンズ(sp版)
+@include mq(sp) {
+  .selection__container--second {
+    // アイコンコンテナ
+    .infomation__icons {
+      height: spvw(141);
+    }
+
+    // アイコン一個目
+    .icons__item--one {
+      top: spvw(23);
+      .icons__top {
+        width: spvw(51);
+      }
+      .icons__text {
+        margin-top: spvw(16);
+        width: 5em;
+      }
+    }
+    // アイコン二個目
+    .icons__item--two {
+      top: spvw(22);
+      .icons__top {
+        width: spvw(51);
+      }
+    }
+
+    // アイコン三個目
+    .icons__item--three {
+      .icons__top--doubleIcon {
+        position: relative;
+
+        & img:nth-child(1) {
+          width: spvw(41);
+          display: block;
+          object-fit: cover;
+          position: absolute;
+          top: spvw(1);
+          left: spvw(-21);
+        }
+        & img:nth-child(2) {
+          width: spvw(23);
+          display: block;
+          object-fit: cover;
+          position: absolute;
+          top: spvw(20);
+          left: spvw(10);
+        }
+      }
+
+      .icons__text {
+        margin-top: spvw(54);
+      }
+    }
   }
 }
 
@@ -411,6 +473,58 @@
   }
 }
 
+// アコーディオン二枚目のアイコンズ
+@include mq(pc) {
+  .selection__container--second {
+    // アイコン一つ目
+    .icons__item--one {
+      top: pcmin(56);
+      left: pcmin(129);
+
+      & .icons__top {
+        width: pcmin(88);
+      }
+
+      & .icons__text {
+        margin-top: pcmin(12);
+      }
+    }
+
+    .icons__item--two {
+      top: pcmin(57);
+      left: pcmin(409);
+
+      & .icons__top {
+        width: pcmin(88);
+      }
+    }
+
+    & .icons__item--three {
+      top: pcmin(57);
+      left: pcmin(727);
+
+      & .icons__top--doubleIcon {
+        & img:nth-child(1) {
+          width: pcmin(71);
+          position: absolute;
+          top: pcmin(8);
+          left: pcmin(33);
+        }
+        & img:nth-child(2) {
+          width: pcmin(34);
+          position: absolute;
+          top: pcmin(44);
+          left: pcmin(90);
+        }
+      }
+
+      .icons__text {
+        margin-top: pcmin(82);
+      }
+    }
+  }
+}
+
 // グリッドコンテナ
 .information__grid {
   display: grid;
@@ -477,12 +591,12 @@
 
 // カードの下のテキスト
 .card__text {
-  margin-top: 20px;
-  width: 224px;
-  font-size: 14px;
+  margin-top: spvw(20);
+  width: spvw(224);
+  font-size: spvw(14);
   margin-inline: auto;
   line-height: 1.5;
-  margin-bottom: 35px;
+  margin-bottom: spvw(35);
 
   @include mq(pc) {
     font-size: pcmin(16);
@@ -491,5 +605,22 @@
     word-break: break-all;
     white-space: normal;
     line-break: anywhere;
+  }
+}
+
+// 二枚目のアコーディオンのカード下テキスト
+.selection__container--second {
+  .card__text {
+    @include mq(sp) {
+      line-break: strict;
+      width: spvw(230);
+      margin-left: spvw(25);
+      margin-top: spvw(21);
+      margin-bottom: spvw(34);
+    }
+
+    @include mq(pc) {
+      line-height: 1.43;
+    }
   }
 }
