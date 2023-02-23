@@ -550,7 +550,7 @@
 
   @include mq(pc) {
     width: pcmin(275);
-    height: pcmin(275);
+    height: clamp(rem(173), pcvw(275), rem(275));
   }
 }
 
@@ -558,13 +558,13 @@
 .card__number {
   position: absolute;
   display: block;
-  width: spvw(84);
-  height: spvw(84);
+  width: min(22.4vw, rem(77));
+  height: min(22.4vw, rem(77));
   background: #1989ff;
   clip-path: polygon(100% 0, 0 0, 0 100%);
   color: #fff;
-  font-size: spvw(30);
-  padding-left: spvw(16);
+  font-size: min(8vw, rem(30));
+  padding-left: min(4.2666666667vw, rem(16));
   z-index: 0;
 
   @include mq(pc) {

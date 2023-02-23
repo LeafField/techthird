@@ -44,6 +44,11 @@
     margin-top: pcmin(72);
     margin-inline: auto;
     width: pcmin(1078);
+
+    & .intersective {
+      transform: translateY(50%);
+      opacity: 0;
+    }
   }
 }
 
@@ -57,10 +62,12 @@
   background-color: #1989ff;
   padding-top: spvw(40);
   padding-bottom: spvw(54);
-  transition: all 0.6s ease;
+  transition: all 0.8s ease-in-out;
   &.intersective {
-    transform: translateY(50%);
-    opacity: 0;
+    @include mq(sp) {
+      transform: translateY(50%);
+      opacity: 0;
+    }
   }
 
   @include mq(pc) {

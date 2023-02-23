@@ -77,7 +77,7 @@ const linkAction = (event: MouseEvent) => {
   const y = rect.y - header.clientHeight;
 
   // 相対スクロール
-  scrollBy(0, y);
+  window.scrollBy(0, y);
 };
 
 // リンクアクションを各ヘッダーメニューへ適用
@@ -181,7 +181,7 @@ const intersectionObserverCallback: IntersectionObserverCallback = (
 
 // オプション
 const intersectionObserverOptions: IntersectionObserverInit = {
-  rootMargin: "-10% 0px",
+  rootMargin: "-40% 0px",
 };
 
 // intersectionObserverのイニシャライズ

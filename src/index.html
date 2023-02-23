@@ -65,10 +65,13 @@
     </div>
     <figure class="hero__img">
       <picture>
-        <source media="(max-width:767px )" srcset="./images/main_photo.jpg 1x,
-        ./images/main_photo@2x.jpg 2x">
-        <img srcset="./images/main_photopc.jpg 1x,./images/main_photopc@2x.jpg 2x" alt="">
+        <!-- 画像の表示条件を記述 -->
+        <source media="(max-width:767px)" srcset="./images/main_photo.jpg 1x, ./images/main_photo@2x.jpg 2x">
+        <source media="(min-width:768px)" srcset="./images/main_photopc.jpg 1x, ./images/main_photopc@2x.jpg 2x">
+        <!-- 画像のデフォルト表示 -->
+        <img src="./images/main_photo.jpg" alt="">
       </picture>
+
     </figure>
   </section>
 
