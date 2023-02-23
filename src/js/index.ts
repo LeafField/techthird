@@ -159,3 +159,38 @@ tabs.forEach((tab, index) => {
 window.addEventListener("resize", () => {
   tabs.forEach((_, index) => accordionCallback(index, false));
 });
+
+// スクロールアニメーションの実装
+
+// 必要な要素の取得
+const animationTarget = document.querySelectorAll(
+  ".intersective"
+) as NodeListOf<HTMLElement>;
+
+// 発火時にintersectiveクラスを外すプログラム
+const intersectionObserverCallback: IntersectionObserverCallback = (
+  entries: IntersectionObserverEntry[],
+  observer: IntersectionObserver
+) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.remove("intersective");
+    observer.unobserve(entry.target);
+  });
+};
+
+// オプション
+const intersectionObserverOptions: IntersectionObserverInit = {
+  rootMargin: "-10% 0px",
+};
+
+// intersectionObserverのイニシャライズ
+const observer = new IntersectionObserver(
+  intersectionObserverCallback,
+  intersectionObserverOptions
+);
+
+// 各ターゲットへobserverの登録
+animationTarget.forEach((target) => {
+  observer.observe(target);
+});
