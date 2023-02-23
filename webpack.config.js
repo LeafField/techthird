@@ -24,7 +24,7 @@ module.exports = {
   // 本番環境の場合modeをdevelopmentからproductionへと書き換えてください
   mode: "production",
   // 本番ビルド時にソースマップは削除してください（要件による）
-  devtool: "inline-source-map",
+  // devtool: "inline-source-map",
   entry: {
     index: "./src/js/index.ts",
   },
