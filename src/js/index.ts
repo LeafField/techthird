@@ -21,6 +21,9 @@ dom.watch();
 const hamburger = document.querySelector(".hamburger") as HTMLButtonElement;
 const menu = document.querySelector(".header__nav") as HTMLElement;
 const menuList = document.querySelector(".header__nav ul") as HTMLUListElement;
+const headerTitle = document.querySelector(
+  ".header__title"
+) as HTMLHeadingElement;
 
 // ハンバーガーボタンのクリックに対してactiveクラスを付けはずしする
 hamburger.addEventListener("click", () => {
@@ -42,6 +45,45 @@ const removeMenu = () => {
 
 // リサイズ時ハンバーガーメニューを閉じる
 window.addEventListener("resize", removeMenu);
+
+// ヘッダータイトルをクリックした際もハンバーガーメニューを閉じる
+headerTitle.addEventListener("click", removeMenu);
+
+// ヘッダーリンクのスクロール制御
+// 必要な要素の取得
+const navlinks = document.querySelectorAll(
+  ".header__list"
+) as NodeListOf<HTMLLinkElement>;
+const header = document.querySelector(".header") as HTMLHeadElement;
+
+// ページ内スクロールのプログラム
+const linkAction = (event: MouseEvent) => {
+  // デフォルトの挙動を停止
+  event.preventDefault();
+  // リンクをクリックしたらハンバーガーメニューを閉じる
+  removeMenu();
+
+  // リンク先のid名を取得
+  const linkId = (event.target as HTMLLinkElement)
+    .getAttribute("href")
+    ?.replace("#", "");
+
+  // リンク先のウィンドウからの相対座標を取得
+  if (!linkId) return;
+  const rect = document.getElementById(linkId)?.getBoundingClientRect();
+
+  // リンク先との相対座標 - ヘッダーの高さ
+  if (!rect) return;
+  const y = rect.y - header.clientHeight;
+
+  // 相対スクロール
+  scrollBy(0, y);
+};
+
+// リンクアクションを各ヘッダーメニューへ適用
+navlinks.forEach((link) => {
+  link.addEventListener("click", (e) => linkAction(e));
+});
 
 // swiperのイニシャライズ
 const swiper = new Swiper(".swiper", {
