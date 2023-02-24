@@ -62,7 +62,7 @@
   background-color: #1989ff;
   padding-top: spvw(40);
   padding-bottom: spvw(54);
-  transition: all 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
   &.intersective {
     @include mq(sp) {
       transform: translateY(50%);

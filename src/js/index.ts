@@ -43,9 +43,6 @@ const removeMenu = () => {
   menu.removeAttribute("style");
 };
 
-// リサイズ時ハンバーガーメニューを閉じる
-window.addEventListener("resize", removeMenu);
-
 // ヘッダータイトルをクリックした際もハンバーガーメニューを閉じる
 headerTitle.addEventListener("click", removeMenu);
 
@@ -155,9 +152,12 @@ tabs.forEach((tab, index) => {
   tab.addEventListener("click", () => accordionCallback(index, true));
 });
 
-// リサイズ時に高さを再計算
+// 画面リサイズイベント
 window.addEventListener("resize", () => {
+  // 各アコーディオンパネルの高さを再計算
   tabs.forEach((_, index) => accordionCallback(index, false));
+  // ハンバーガーメニューを閉じる
+  removeMenu();
 });
 
 // スクロールアニメーションの実装

@@ -1,0 +1,39 @@
+@use "utils" as *;
+
+.between {
+  width: 100%;
+  height: spvw(254);
+  background-size: cover;
+  padding-top: spvw(60);
+  @include mq(sp) {
+    background-image: url(../images/start_bg_sp@2x.jpg);
+  }
+
+  @include mq(pc) {
+    background-image: url(../images/start_bg_s@2x.jpg);
+    height: pcmin(295);
+    padding-top: pcmin(78);
+  }
+
+  &__text {
+    display: block;
+    color: #fff;
+    font-size: spvw(17);
+    font-weight: 900;
+    width: max-content;
+    margin-inline: auto;
+    @include mq(pc) {
+      font-size: pcmin(19);
+    }
+  }
+
+  &__btn {
+    margin-inline: auto;
+    margin-top: spvw(49);
+    font-size: spvw(17);
+    @include mq(pc) {
+      font-size: pcmin(16);
+      margin-top: pcmin(37);
+    }
+  }
+}

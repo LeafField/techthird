@@ -4,7 +4,7 @@
 .selection {
   background-color: #d0e7ff;
   width: 100%;
-  padding-bottom: spvw(40);
+  padding-bottom: spvw(41);
 
   @include mq(pc) {
     padding-bottom: pcmin(100);
