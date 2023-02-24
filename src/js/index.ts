@@ -5,14 +5,18 @@ import "swiper/swiper-bundle.css";
 
 // fontawesomeのインポート
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faQuoteLeft,
+  faQuoteRight,
+} from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
 // swiperのインポート
 import Swiper, { Navigation, Pagination } from "swiper";
 
 // fontawesomeの監視とその監視対象の追加
-library.add(faBars, faCircleCheck);
+library.add(faBars, faCircleCheck, faQuoteLeft, faQuoteRight);
 dom.watch();
 
 // ハンバーガーメニューの実装
@@ -152,14 +156,6 @@ tabs.forEach((tab, index) => {
   tab.addEventListener("click", () => accordionCallback(index, true));
 });
 
-// 画面リサイズイベント
-window.addEventListener("resize", () => {
-  // 各アコーディオンパネルの高さを再計算
-  tabs.forEach((_, index) => accordionCallback(index, false));
-  // ハンバーガーメニューを閉じる
-  removeMenu();
-});
-
 // スクロールアニメーションの実装
 
 // 必要な要素の取得
@@ -193,4 +189,25 @@ const observer = new IntersectionObserver(
 // 各ターゲットへobserverの登録
 animationTarget.forEach((target) => {
   observer.observe(target);
+});
+
+// viewportをスクロールバーを除いて計算するプログラム(--vw)
+const jsViewPort = () => {
+  let vw = document.body.clientWidth;
+  document.documentElement.style.setProperty("--vw", `${vw / 16}rem`);
+};
+
+// 初回読み込み時にカスタムプロパティのviewportを計算して割り当て
+window.addEventListener("DOMContentLoaded", () => {
+  jsViewPort();
+});
+
+// 画面リサイズイベント
+window.addEventListener("resize", () => {
+  // 各アコーディオンパネルの高さを再計算
+  tabs.forEach((_, index) => accordionCallback(index, false));
+  // ハンバーガーメニューを閉じる
+  removeMenu();
+  // viewportの再計算
+  jsViewPort();
 });

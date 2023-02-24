@@ -6,6 +6,12 @@
 @forward "work";
 @forward "selection";
 @forward "between";
+@forward "example";
+
+:root {
+  // javascriptで書き換える
+  --vw: 100vw;
+}
 
 html {
   scroll-behavior: smooth;
