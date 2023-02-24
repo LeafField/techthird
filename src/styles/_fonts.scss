@@ -8,22 +8,26 @@
   font-family: "Noto Sans JP";
   src: url(../fonts/NotoSansJP-Bold.otf);
   font-weight: bold;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Noto Sans JP";
   src: url(../fonts/NotoSansJP-Black.otf);
   font-weight: 900;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Poppins";
   src: url(../fonts/Poppins-Bold.ttf);
   font-weight: bold;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Oleo Script";
   src: url(../fonts/OleoScript-Regular.ttf);
   font-weight: normal;
+  font-display: swap;
 }
