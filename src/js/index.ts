@@ -196,7 +196,7 @@ animationTarget.forEach((target) => {
 
 // viewportをスクロールバーを除いて計算するプログラム(--vw)
 const jsViewPort = () => {
-  let vw = document.body.clientWidth;
+  const vw = document.body.clientWidth;
   document.documentElement.style.setProperty("--vw", `${vw / 16}rem`);
 };
 

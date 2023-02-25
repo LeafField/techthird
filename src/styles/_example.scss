@@ -75,6 +75,7 @@
   transition: transform 0.8s ease-in-out;
   &.intersective {
     transform: translateX(-100%);
+    opacity: 0;
   }
 
   @include mq(pc) {
@@ -207,6 +208,7 @@
   transition: transform 0.8s ease-in-out;
   &.intersective {
     transform: translateX(100%);
+    opacity: 0;
   }
 
   @include mq(pc) {

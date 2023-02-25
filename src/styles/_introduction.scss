@@ -59,6 +59,7 @@
 // ステップ
 .introduction__step {
   width: 100%;
+  transition: all 0.6s ease-in-out;
 
   & + .introduction__step {
     @include mq(pc) {
@@ -136,5 +137,105 @@
   }
   @include mq(pc) {
     font-size: pcmin(35);
+  }
+}
+
+// ステップ部のスクロールアニメーション
+.introduction__step.intersective {
+  transform: translateY(50%);
+  opacity: 0;
+}
+
+// ステップ下、セクションサブタイトル
+.introduction__subtitle {
+  font-weight: bold;
+  text-align: center;
+  @include mq(sp) {
+    margin-top: spvw(22);
+    font-size: spvw(17);
+    line-height: 1.47;
+  }
+  @include mq(pc) {
+    font-size: pcmin(23);
+    line-height: 1.52;
+    margin-top: pcmin(63);
+  }
+}
+
+// サブタイトル下、三枚のカード
+.introduction__support {
+  display: grid;
+  @include mq(sp) {
+    margin-top: spvw(35);
+  }
+  @include mq(pc) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: pcmin(20);
+    width: pcmin(1075);
+    margin-inline: auto;
+    margin-top: pcmin(47);
+  }
+}
+.support__card {
+  background-color: #d0e7ff;
+  @include mq(sp) {
+    border-radius: spvw(10);
+    & + .support__card {
+      margin-top: spvw(22);
+    }
+  }
+  @include mq(pc) {
+    border-radius: pcmin(10);
+  }
+}
+
+// カードタイトル
+.support__cardTitle {
+  color: #1989ff;
+  text-align: center;
+  & span {
+    color: #000;
+    font-weight: bold;
+  }
+  @include mq(sp) {
+    font-size: spvw(17);
+    padding-top: spvw(28);
+    & span {
+      margin-left: spvw(5);
+    }
+  }
+  @include mq(pc) {
+    font-size: pcmin(18);
+    padding-top: 34px;
+    & span {
+      margin-left: pcmin(5);
+      line-height: 1.56;
+    }
+  }
+}
+
+// カードテキスト
+.support__cardTextList {
+  @include mq(sp) {
+    margin-top: 26px;
+    font-size: spvw(15);
+    line-height: 1.4;
+    width: 18em;
+    margin-inline: auto;
+
+    & li + li {
+      margin-top: spvw(15);
+      padding-bottom: spvw(39);
+    }
+  }
+  @include mq(pc) {
+    margin-top: pcmin(22);
+    width: 16em;
+    margin-inline: auto;
+    line-height: 1.44;
+    & li + li {
+      margin-top: pcmin(11);
+      padding-bottom: pcmin(53);
+    }
   }
 }
