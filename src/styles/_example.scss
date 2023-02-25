@@ -4,6 +4,11 @@
 .example {
   background-color: #f2f2f2;
   overflow-x: hidden;
+  padding-bottom: spvw(35);
+
+  @include mq(pc) {
+    padding-bottom: pcmin(100);
+  }
 
   &__container {
     width: per(340, 375);
@@ -66,6 +71,12 @@
   display: flex;
   flex-direction: column;
 
+  // スクロールアニメーション
+  transition: transform 0.8s ease-in-out;
+  &.intersective {
+    transform: translateX(-100%);
+  }
+
   @include mq(pc) {
     margin-top: 39px;
     flex-direction: row;
@@ -122,7 +133,7 @@
       font-style: normal;
       width: fit-content;
       position: absolute;
-      top: -12%;
+      top: -10%;
       left: 8%;
 
       @include mq(pc) {
@@ -139,7 +150,7 @@
       font-style: normal;
       width: fit-content;
       position: absolute;
-      bottom: -18%;
+      bottom: 16%;
       right: 7.5%;
 
       @include mq(pc) {
@@ -169,6 +180,7 @@
     width: 19em;
     margin-top: spvw(29);
     margin-bottom: 0;
+    padding-bottom: spvw(58);
     line-height: 1.67;
 
     @include mq(pc) {
@@ -178,6 +190,142 @@
       line-height: 1.44;
       margin-top: pcmin(13);
       margin-inline: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+// 二枚目のカード
+.example__card--bottom {
+  background-color: #fff;
+  margin-inline: auto;
+  margin-top: spvw(35);
+  display: flex;
+  flex-direction: column;
+
+  transition: transform 0.8s ease-in-out;
+  &.intersective {
+    transform: translateX(100%);
+  }
+
+  @include mq(pc) {
+    margin-top: 40px;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    height: pcmin(281);
+    // フォールバック用
+    margin-right: calc((100vw - 100%) * -1 / 2);
+    padding-right: calc(100vw - 100% / 2);
+
+    // javascriptにてvwを再計算してカスタムプロパティに当てはめる
+    margin-right: calc((var(--vw) - 100%) / 2 * -1);
+    padding-right: calc((var(--vw) - 100%) / 2);
+  }
+
+  // テキスト欄のコンテナ
+  .card__inner {
+    position: relative;
+    margin-top: spvw(42);
+
+    @include mq(pc) {
+      margin-top: 0;
+      margin-left: 0;
+      margin-right: pcmin(54);
+      margin-bottom: pcmin(7);
+    }
+  }
+
+  // カードイメージ
+  & .card__img {
+    width: spvw(119);
+    margin-inline: auto;
+    padding-top: spvw(36);
+    @include mq(pc) {
+      width: pcmin(130);
+      padding-top: 0;
+      margin-right: 0;
+      margin-right: pcmin(33);
+      margin-left: 0;
+    }
+    & img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  // カード内アイコン
+  .card__icon {
+    &--top {
+      font-size: spvw(22);
+      color: #afd2fe;
+      display: block;
+      line-height: 1;
+      font-style: normal;
+      width: fit-content;
+      position: absolute;
+      top: -13%;
+      left: 7.5%;
+
+      @include mq(pc) {
+        font-size: pcmin(30);
+        top: -37%;
+        left: -4%;
+      }
+    }
+    &--bottom {
+      font-size: spvw(22);
+      color: #afd2fe;
+      display: block;
+      line-height: 1;
+      font-style: normal;
+      width: fit-content;
+      position: absolute;
+      bottom: 19%;
+      right: 7.5%;
+
+      @include mq(pc) {
+        font-size: pcmin(33);
+        bottom: -45%;
+        right: -4.5%;
+      }
+    }
+  }
+
+  // カードタイトル
+  & .card__title {
+    font-size: spvw(17);
+    text-align: center;
+    line-height: 1;
+
+    @include mq(pc) {
+      font-size: pcmin(23);
+      text-align: left;
+      line-height: 1.22;
+    }
+  }
+
+  // カードテキスト
+  & .card__text {
+    font-size: spvw(15);
+    width: 19em;
+    margin-top: spvw(30);
+    margin-bottom: 0;
+    padding-bottom: 53px;
+    line-height: 1.67;
+
+    @include mq(pc) {
+      font-size: pcmin(16);
+      width: 41em;
+      margin-top: 0px;
+      line-height: 1.44;
+      margin-top: pcmin(13);
+      margin-inline: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
   }
 }

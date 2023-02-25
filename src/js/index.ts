@@ -100,6 +100,8 @@ const swiper = new Swiper(".swiper", {
   loop: true,
   slidesPerView: 1,
   centeredSlides: true,
+  // slidesPerGroup: 0,
+  loopedSlides: 5,
   breakpoints: {
     768: {
       slidesPerView: 3,
@@ -198,9 +200,7 @@ const jsViewPort = () => {
 };
 
 // 初回読み込み時にカスタムプロパティのviewportを計算して割り当て
-window.addEventListener("DOMContentLoaded", () => {
-  jsViewPort();
-});
+window.addEventListener("DOMContentLoaded", jsViewPort);
 
 // 画面リサイズイベント
 window.addEventListener("resize", () => {
