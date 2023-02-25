@@ -1,0 +1,140 @@
+@use "utils" as *;
+// セクション
+.introduction {
+  width: 100%;
+  @include mq(sp) {
+    padding-inline: spvw(20);
+  }
+}
+
+// セクションタイトル
+.introduction {
+  &__title {
+    font-weight: 900;
+    line-height: 1.5;
+    color: #000;
+    text-align: center;
+    @include mq(sp) {
+      font-size: spvw(26);
+      padding-top: spvw(30);
+    }
+    @include mq(pc) {
+      font-size: pcmin(40);
+      padding-top: 94px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      & br {
+        display: contents;
+      }
+    }
+  }
+
+  &__description {
+    @include mq(sp) {
+      font-size: spvw(15);
+      margin-top: spvw(28);
+      line-height: calc(25 / 15);
+    }
+
+    @include mq(pc) {
+      margin-top: pcmin(50);
+      font-size: pcmin(18);
+      text-align: center;
+    }
+  }
+}
+
+// 各ステップカードを収納するコンテナ
+.introduction__container {
+  @include mq(sp) {
+    margin-top: spvw(31);
+  }
+  @include mq(pc) {
+    margin-top: pcmin(75);
+    width: pcmin(763);
+    margin-inline: auto;
+  }
+}
+
+// ステップ
+.introduction__step {
+  width: 100%;
+
+  & + .introduction__step {
+    @include mq(pc) {
+      margin-top: pcmin(9);
+    }
+    @include mq(sp) {
+      margin-top: spvw(9);
+    }
+  }
+}
+
+.introduction__card {
+  border: solid 1px #1989ff;
+  display: flex;
+}
+
+// 左側の青い部分
+.card__left {
+  background-color: #1989ff;
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mq(sp) {
+    width: per(115, 335);
+    clip-path: polygon(0 0, 100% 0, 84% 100%, 0% 100%);
+    font-size: spvw(16);
+    & span {
+      margin-right: spvw(15);
+      margin-bottom: spvw(6);
+    }
+  }
+
+  @include mq(pc) {
+    width: per(192, 763);
+    clip-path: polygon(0 0, 100% 0, 84% 100%, 0% 100%);
+    font-size: pcmin(20);
+
+    & span {
+      margin-right: 29px;
+      margin-bottom: 1px;
+      letter-spacing: 0.05em;
+    }
+  }
+}
+
+// 右側のテキスト部分
+.card__right {
+  text-transform: uppercase;
+  line-break: strict;
+  line-height: 1.47;
+  @include mq(sp) {
+    padding-block: spvw(20);
+    font-size: spvw(15);
+    width: 12.2em;
+    margin-left: spvw(11);
+  }
+
+  @include mq(pc) {
+    padding-block: pcmin(22);
+    margin-left: pcmin(60);
+    width: 28em;
+  }
+}
+
+// 矢印
+.introduction__allow {
+  text-align: center;
+  color: #1989ff;
+  @include mq(sp) {
+    font-size: spvw(35);
+    margin-top: max(rem(-5), spvw(-5));
+  }
+  @include mq(pc) {
+    font-size: pcmin(35);
+  }
+}

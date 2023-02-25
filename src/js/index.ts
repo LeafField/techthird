@@ -9,6 +9,7 @@ import {
   faBars,
   faQuoteLeft,
   faQuoteRight,
+  faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
@@ -16,7 +17,7 @@ import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 import Swiper, { Navigation, Pagination } from "swiper";
 
 // fontawesomeの監視とその監視対象の追加
-library.add(faBars, faCircleCheck, faQuoteLeft, faQuoteRight);
+library.add(faBars, faCircleCheck, faQuoteLeft, faQuoteRight, faArrowDown);
 dom.watch();
 
 // ハンバーガーメニューの実装
@@ -211,3 +212,8 @@ window.addEventListener("resize", () => {
   // viewportの再計算
   jsViewPort();
 });
+
+// デバッグ用
+// window.addEventListener("DOMContentLoaded", () => {
+//   tabs.forEach((_, index) => accordionCallback(index, true));
+// });
