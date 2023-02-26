@@ -4,6 +4,10 @@
   width: 100%;
   @include mq(sp) {
     padding-inline: spvw(20);
+    padding-bottom: spvw(41);
+  }
+  @include mq(pc) {
+    padding-bottom: pcmin(100);
   }
 }
 
@@ -233,9 +237,32 @@
     width: 16em;
     margin-inline: auto;
     line-height: 1.44;
+    font-size: pcmin(16);
+    position: relative;
+    right: rem(3);
     & li + li {
       margin-top: pcmin(11);
       padding-bottom: pcmin(53);
+    }
+  }
+}
+
+// セクション下のbetweenセクション調整用
+.introduction__between {
+  @include mq(sp) {
+    padding-top: spvw(56);
+    & .between__text {
+      text-align: center;
+      line-height: 1.76;
+    }
+
+    & .between__btn {
+      margin-top: 17px;
+    }
+  }
+  @include mq(pc) {
+    & br {
+      display: contents;
     }
   }
 }

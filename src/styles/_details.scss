@@ -1,0 +1,114 @@
+@use "utils" as *;
+
+// セクションの大枠
+.details {
+  background-color: #f2f2f2;
+  @include mq(sp) {
+    padding-top: spvw(60);
+  }
+  @include mq(pc) {
+    padding-top: 100px;
+  }
+}
+
+// 一個目のアコーディオンのコンテナ
+.details__conainer--first {
+  margin-inline: auto;
+  @include mq(sp) {
+    width: spvw(320);
+  }
+  @include mq(pc) {
+    width: pcmin(1000);
+  }
+}
+
+// FAQのタブ
+.details__question--tab {
+  background-color: #fff;
+  border: #000 solid 2px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include mq(sp) {
+    height: spvw(60);
+  }
+  @include mq(pc) {
+    height: pcmin(87);
+  }
+}
+
+// タブのテキスト
+.details__question--tab .tab__text {
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+  @include mq(sp) {
+    margin-left: spvw(14);
+    font-size: spvw(16);
+  }
+  @include mq(pc) {
+    font-size: pcmin(23);
+    margin-left: pcmin(48);
+    margin-bottom: pcmin(7);
+  }
+}
+
+// タブの十字アイコン
+.details__conainer--first .tab__icon {
+  background-color: #000;
+  display: block;
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+  }
+  @include mq(sp) {
+    width: spvw(14);
+    height: spvw(3);
+    margin-right: spvw(23);
+  }
+  @include mq(pc) {
+    width: pcmin(15);
+    height: pcmin(3);
+    margin-right: pcmin(28);
+    margin-bottom: rem(3);
+  }
+}
+// タブの開閉に連動してアイコンの十字を動作
+.active .tab__icon::before {
+  transform: none;
+}
+
+// 一枚目のアコーディオンパネル
+.details__question--panel {
+  background-color: #fff;
+}
+
+// インナーコンテナ
+.panel__container {
+  @include mq(sp) {
+    padding-inline: spvw(10);
+  }
+}
+
+//  インナータイトル
+.question__title {
+  @include mq(sp) {
+    font-size: spvw(16);
+    font-weight: bold;
+    padding-top: spvw(29);
+    line-height: 1;
+  }
+}
+
+// インナーアコーディオン
+.details__innerAccordion {
+  background-color: #d0e7ff;
+  border-radius: spvw(10);
+  margin-top: 23px;
+}

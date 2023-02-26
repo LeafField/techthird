@@ -128,13 +128,13 @@ next.addEventListener("click", () => swiper.slideNext());
 // 必要な要素の取得
 const tabs = document.querySelectorAll(
   ".accordion__tab"
-) as NodeListOf<HTMLDivElement>;
+) as NodeListOf<HTMLElement>;
 const accordions = document.querySelectorAll(
   ".accordion__panel"
-) as NodeListOf<HTMLDivElement>;
+) as NodeListOf<HTMLElement>;
 const accordionInner = document.querySelectorAll(
   ".accordion__inner"
-) as NodeListOf<HTMLDivElement>;
+) as NodeListOf<HTMLElement>;
 
 // 各アコーディオンパネルの開閉プログラム
 // indexは各要素の順番、toggleはtrueでパネルの開閉、falseで要素の高さの再計算

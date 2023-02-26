@@ -9,6 +9,10 @@ $breakpoints: (
   }
 }
 
+@mixin hl($fontSize, $lineHeight) {
+  margin-block: calc(($fontSize * $lineHeight - $fontSize) / 2 / 375 * -100vw);
+}
+
 @function vw($pixel, $base) {
   @return calc($pixel / $base * 100vw);
 }
