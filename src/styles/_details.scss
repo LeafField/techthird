@@ -65,7 +65,7 @@
     height: 100%;
     background-color: #000;
     transform: rotate(90deg);
-    transition: transform 0.3s;
+    transition: transform 0.6s;
   }
   @include mq(sp) {
     width: spvw(14);
@@ -87,6 +87,9 @@
 // 一枚目のアコーディオンパネル
 .details__question--panel {
   background-color: #fff;
+  overflow: hidden;
+  height: 0;
+  transition: height 0.6s ease-in-out;
 }
 
 // インナーコンテナ
@@ -94,21 +97,110 @@
   @include mq(sp) {
     padding-inline: spvw(10);
   }
+  @include mq(pc) {
+    padding-inline: pcmin(67);
+  }
 }
 
 //  インナータイトル
 .question__title {
+  font-weight: bold;
+  line-height: 1;
   @include mq(sp) {
     font-size: spvw(16);
-    font-weight: bold;
     padding-top: spvw(29);
-    line-height: 1;
+  }
+  @include mq(pc) {
+    font-size: pcmin(23);
+    padding-top: pcmin(42);
   }
 }
 
 // インナーアコーディオン
 .details__innerAccordion {
   background-color: #d0e7ff;
-  border-radius: spvw(10);
-  margin-top: 23px;
+  @include mq(sp) {
+    border-radius: spvw(10);
+    margin-top: spvw(23);
+    padding-left: spvw(17);
+  }
+  @include mq(pc) {
+    border-radius: pcmin(10);
+    margin-top: pcmin(26);
+    padding-left: pcmin(57);
+  }
+}
+
+// インナーアコーディオンのタブ
+.inner__tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & .inner__tabText {
+    display: block;
+    font-weight: bold;
+    line-height: 1;
+    @include mq(sp) {
+      font-size: spvw(16);
+      padding-top: spvw(21);
+      padding-bottom: spvw(21);
+    }
+    @include mq(pc) {
+      font-size: pcmin(18);
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+  }
+
+  & .inner__tabIcon {
+    display: block;
+    background-color: #000;
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      transform: rotate(90deg);
+      transition: transform 0.6s ease;
+    }
+    @include mq(sp) {
+      width: spvw(14);
+      height: spvw(3);
+      margin-right: spvw(11);
+    }
+    @include mq(pc) {
+      width: pcmin(15);
+      height: pcmin(3);
+      margin-right: pcmin(35);
+    }
+  }
+  &.active .inner__tabIcon::before {
+    transform: none;
+  }
+}
+
+// インナーアコーディオン
+.inner {
+  &__panel {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.6s ease-in-out;
+  }
+
+  &__panelContainer {
+    @include mq(sp) {
+      padding-top: 9px;
+      padding-bottom: 32px;
+      font-size: spvw(15);
+      width: 16em;
+      line-height: 1.4;
+    }
+    @include mq(pc) {
+      padding-top: pcmin(2);
+      padding-bottom: pcmin(34);
+      width: 46em;
+    }
+  }
 }

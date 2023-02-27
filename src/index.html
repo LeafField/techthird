@@ -452,13 +452,20 @@
         <h2 class="tab__text">faq</h2>
         <span class="tab__icon"></span>
       </div>
-      <div class="details__question--panel accordion__panel">
-        <div class="panel__container accordion__inner">
+      <div class="details__question--panel accordion__panel parentAccordion">
+        <div class="panel__container accordion__inner parentInner">
           <h3 class="question__title">料金</h3>
           <dl class="details__innerAccordion">
-            <dt class="inner__tab">Q.料金はかかりますか？</dt>
-            <dd class="inner__panel">A.フリープランは無料でご利用いただけます。詳しくは「料金プラン」をご覧ください。<br>
-              2022年6月までにフリープランにお申し込みいただいた企業様には、ベースプランと同等の導入支援サポートを無償でご提供します。</dd>
+            <dt class="inner__tab accordion__tab accordion__tab--child" data-inner="inner">
+              <span class="inner__tabText">Q.料金はかかりますか？</span>
+              <span class="inner__tabIcon"></span>
+            </dt>
+            <dd class="inner__panel accordion__panel">
+              <div class="inner__panelContainer accordion__inner">
+                A.フリープランは無料でご利用いただけます。詳しくは「料金プラン」をご覧ください。<br>
+                2022年6月までにフリープランにお申し込みいただいた企業様には、ベースプランと同等の導入支援サポートを無償でご提供します。
+              </div>
+            </dd>
           </dl>
         </div>
       </div>

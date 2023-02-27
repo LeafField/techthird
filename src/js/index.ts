@@ -135,6 +135,10 @@ const accordions = document.querySelectorAll(
 const accordionInner = document.querySelectorAll(
   ".accordion__inner"
 ) as NodeListOf<HTMLElement>;
+const parentAccordion = document.querySelector(
+  ".parentAccordion"
+) as HTMLDivElement;
+const parentInner = document.querySelector(".parentInner") as HTMLElement;
 
 // 各アコーディオンパネルの開閉プログラム
 // indexは各要素の順番、toggleはtrueでパネルの開閉、falseで要素の高さの再計算
@@ -142,11 +146,12 @@ const accordionCallback = (index: number, toggle: boolean) => {
   const accordion = accordions[index];
   const tab = tabs[index];
   const inner = accordionInner[index];
-
   if (toggle) {
     tab.classList.toggle("active");
   }
-
+  if (tab.getAttribute("data-inner") === "inner") {
+    parentAccordion.style.height = `auto`;
+  }
   if (tab.classList.contains("active")) {
     accordion.style.height = `${inner.clientHeight / 16}rem`;
   } else {
@@ -156,7 +161,14 @@ const accordionCallback = (index: number, toggle: boolean) => {
 
 // 各タブに開閉プログラムを適用
 tabs.forEach((tab, index) => {
-  tab.addEventListener("click", () => accordionCallback(index, true));
+  tab.addEventListener("click", () => {
+    accordionCallback(index, true);
+  });
+});
+
+// 二重構造のアコーディオンパネルの子要素が開閉した際親要素の高さを再計算する
+parentInner.addEventListener("transitionend", () => {
+  parentAccordion.style.height = `${parentInner.clientHeight / 16}rem`;
 });
 
 // スクロールアニメーションの実装
@@ -214,6 +226,6 @@ window.addEventListener("resize", () => {
 });
 
 // デバッグ用
-// window.addEventListener("DOMContentLoaded", () => {
-//   tabs.forEach((_, index) => accordionCallback(index, true));
-// });
+window.addEventListener("DOMContentLoaded", () => {
+  tabs.forEach((_, index) => accordionCallback(index, true));
+});
