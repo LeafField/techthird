@@ -7,7 +7,7 @@
     padding-top: spvw(60);
   }
   @include mq(pc) {
-    padding-top: 100px;
+    padding-top: pcmin(100);
   }
 }
 
@@ -96,9 +96,13 @@
 .panel__container {
   @include mq(sp) {
     padding-inline: spvw(10);
+    padding-top: spvw(3);
+    padding-bottom: sovw(35);
   }
   @include mq(pc) {
     padding-inline: pcmin(67);
+    padding-top: pcmin(8);
+    padding-bottom: pcmin(65);
   }
 }
 
@@ -108,11 +112,11 @@
   line-height: 1;
   @include mq(sp) {
     font-size: spvw(16);
-    padding-top: spvw(29);
+    padding-top: spvw(26);
   }
   @include mq(pc) {
     font-size: pcmin(23);
-    padding-top: pcmin(42);
+    padding-top: pcmin(34);
   }
 }
 
@@ -140,16 +144,18 @@
   & .inner__tabText {
     display: block;
     font-weight: bold;
-    line-height: 1;
     @include mq(sp) {
+      line-height: 1.44;
       font-size: spvw(16);
-      padding-top: spvw(21);
-      padding-bottom: spvw(21);
+      padding-top: spvw(18);
+      padding-bottom: spvw(18);
+      width: 16em;
     }
     @include mq(pc) {
       font-size: pcmin(18);
-      padding-top: 28px;
-      padding-bottom: 28px;
+      padding-top: pcmin(28);
+      padding-bottom: pcmin(28);
+      line-height: 1;
     }
   }
 
@@ -191,16 +197,29 @@
 
   &__panelContainer {
     @include mq(sp) {
-      padding-top: 9px;
-      padding-bottom: 32px;
+      padding-top: spvw(9);
+      padding-bottom: spvw(32);
       font-size: spvw(15);
       width: 16em;
       line-height: 1.4;
+
+      & ul li {
+        margin-top: spvw(11);
+      }
     }
     @include mq(pc) {
       padding-top: pcmin(2);
       padding-bottom: pcmin(34);
       width: 46em;
+      font-size: pcmin(16);
+      line-height: 1.44;
+      & .pc-none {
+        display: contents;
+      }
+
+      & ul li {
+        margin-top: pcmin(11);
+      }
     }
   }
 }

@@ -166,7 +166,7 @@ tabs.forEach((tab, index) => {
   });
 });
 
-// 二重構造のアコーディオンパネルの子要素が開閉した際親要素の高さを再計算する
+// 二重構造のアコーディオンパネルの子要素が開閉した際、親要素の高さを再計算する
 parentInner.addEventListener("transitionend", () => {
   parentAccordion.style.height = `${parentInner.clientHeight / 16}rem`;
 });
@@ -226,6 +226,6 @@ window.addEventListener("resize", () => {
 });
 
 // デバッグ用
-window.addEventListener("DOMContentLoaded", () => {
-  tabs.forEach((_, index) => accordionCallback(index, true));
-});
+// window.addEventListener("DOMContentLoaded", () => {
+//   tabs.forEach((_, index) => accordionCallback(index, true));
+// });
