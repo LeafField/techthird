@@ -149,9 +149,9 @@ const accordionCallback = (index: number, toggle: boolean) => {
   if (toggle) {
     tab.classList.toggle("active");
   }
-  if (tab.getAttribute("data-inner") === "inner") {
-    parentAccordion.style.height = `auto`;
-  }
+  // if (tab.getAttribute("data-inner") === "inner") {
+  //   parentAccordion.style.height = `auto`;
+  // }
   if (tab.classList.contains("active")) {
     accordion.style.height = `${inner.clientHeight / 16}rem`;
   } else {
@@ -167,9 +167,22 @@ tabs.forEach((tab, index) => {
 });
 
 // 二重構造のアコーディオンパネルの子要素が開閉した際、親要素の高さを再計算する
-parentInner.addEventListener("transitionend", () => {
-  parentAccordion.style.height = `${parentInner.clientHeight / 16}rem`;
-});
+
+const resizeDoubleAccordion = (entries: ResizeObserverEntry[]) => {
+  if (!parentAccordion.style.height) return;
+  entries.forEach((entry) => {
+    parentAccordion.style.transition = "none";
+    requestAnimationFrame(() => {
+      parentAccordion.style.height = `${entry.borderBoxSize[0].blockSize}px`;
+    });
+    requestAnimationFrame(() => {
+      parentAccordion.style.transition = "";
+    });
+  });
+};
+
+const resizeObserver = new ResizeObserver(resizeDoubleAccordion);
+resizeObserver.observe(parentInner);
 
 // スクロールアニメーションの実装
 

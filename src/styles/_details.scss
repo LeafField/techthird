@@ -97,7 +97,7 @@
   @include mq(sp) {
     padding-inline: spvw(10);
     padding-top: spvw(3);
-    padding-bottom: sovw(35);
+    padding-bottom: spvw(35);
   }
   @include mq(pc) {
     padding-inline: pcmin(67);
