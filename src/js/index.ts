@@ -135,10 +135,6 @@ const accordions = document.querySelectorAll(
 const accordionInner = document.querySelectorAll(
   ".accordion__inner"
 ) as NodeListOf<HTMLElement>;
-const parentAccordion = document.querySelector(
-  ".parentAccordion"
-) as HTMLDivElement;
-const parentInner = document.querySelector(".parentInner") as HTMLElement;
 
 // 各アコーディオンパネルの開閉プログラム
 // indexは各要素の順番、toggleはtrueでパネルの開閉、falseで要素の高さの再計算
@@ -186,7 +182,7 @@ const resizeDoubleAccordion = (entries: ResizeObserverEntry[]) => {
 // resizeObserverのイニシャライズ
 const resizeObserver = new ResizeObserver(resizeDoubleAccordion);
 
-// resizeObserverの監視対象として各アコーディオンパネルのインナーを監視
+// resizeObserverの監視対象として各アコーディオンパネルのインナーを指定
 accordionInner.forEach((inner) => {
   resizeObserver.observe(inner);
 });

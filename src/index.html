@@ -453,8 +453,8 @@
         <h2 class="tab__text">faq</h2>
         <span class="tab__icon"></span>
       </div>
-      <div class="details__question--panel accordion__panel parentAccordion">
-        <div class="panel__container accordion__inner parentInner">
+      <div class="details__question--panel accordion__panel">
+        <div class="panel__container accordion__inner ">
           <h3 class="question__title">料金</h3>
           <dl class="details__innerAccordion">
             <dt class="inner__tab accordion__tab accordion__tab--child" data-inner="inner">
@@ -508,10 +508,8 @@
                   <li>・モバイルアプリ<br>
                     静止画と動画（1分以内）が添付が可能です。静止画は自動的にリサイズされます。</li>
                   <li>・Webアプリ<br>
-                    画像/動画/その他のファイル形式（管理者が許可したもの）が添付可能です。
-                    ただし、1ファイルあたり10MBまでの制限がございます。
-                    また、拡張子の無いファイルは添付できません。
-
+                    画像/動画/その他のファイル形式（管理者が許可したもの）が添付可能です。<br>
+                    ただし、1ファイルあたり10MBまでの制限がございます。<br>
                     また、拡張子の無いファイルは添付できません。</li>
                 </ul>
               </div>
@@ -575,14 +573,15 @@
             <dd class="inner__panel accordion__panel">
               <div class="inner__panelContainer accordion__inner">
                 <p>A.CSVインポートによる一括登録／編集が可能です。<br>
-                  ユーザ情報の変更（既存情報への上書き）、ユーザアカウントの削除も同様の操作で行えます。</p><br>
-                <p>◆一括編集<br>
-                  CSVインポートによる一括編集が可能です。<br>
-                  登録済みユーザーのログインIDと一致する場合、パスワード以外の項目について、CSVファイルの内容でユーザー情報が上書きされます。</p>
-                <br>
-                <p>◆一括削除 <br>
-                  CSVインポートによる一括編集が可能です。<br>
-                  登録済みユーザーのログインIDと一致する場合、削除されます。</p>
+                  ユーザ情報の変更（既存情報への上書き）、ユーザアカウントの削除も同様の操作で行えます。</p>
+                <ul>
+                  <li>◆一括編集<br>
+                    CSVインポートによる一括編集が可能です。<br>
+                    登録済みユーザーのログインIDと一致する場合、パスワード以外の項目について、CSVファイルの内容でユーザー情報が上書きされます。</li>
+                  <li>◆一括削除 <br>
+                    CSVインポートによる一括編集が可能です。<br>
+                    登録済みユーザーのログインIDと一致する場合、削除されます。</li>
+                </ul>
               </div>
             </dd>
           </dl>
@@ -593,11 +592,36 @@
             </dt>
             <dd class="inner__panel accordion__panel">
               <div class="inner__panelContainer accordion__inner">
-                A.パスワード、およびプロフィール画像の変更が可能です。
+                A.パスワード、およびプロフィール画像の変更が可能です。<br>
                 上記以外のプロフィール項目の変更は、管理者が管理システムにて行ってください。
               </div>
             </dd>
           </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="details__conainer--second">
+      <div class="details__question--tab accordion__tab">
+        <h2 class="tab__text">料金プラン</h2>
+        <span class="tab__icon"></span>
+      </div>
+      <div class="details__question--panel accordion__panel">
+        <div class="panel__container accordion__inner">
+          <table class="details__graph">
+            <tr>
+              <th class="graph__title--top">初期費用</th>
+              <td><span class="details__free">無料</span></td>
+            </tr>
+            <tr>
+              <th class="graph__title--under">月額料金</th>
+              <td>
+                <p>フリープランなら<span class="details__free">無料</span></p>
+                <p class="details__plan--under">ベースプランなら<span class="details__free">330円(税込)／IDで初月は無料</span>です。</p>
+
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@
   background-color: #f2f2f2;
   @include mq(sp) {
     padding-top: spvw(60);
+    padding-bottom: spvw(57);
   }
   @include mq(pc) {
     padding-top: pcmin(100);
@@ -114,10 +115,12 @@
   @include mq(sp) {
     font-size: spvw(16);
     padding-top: spvw(26);
+    padding-bottom: spvw(3);
   }
   @include mq(pc) {
     font-size: pcmin(23);
     padding-top: pcmin(34);
+    padding-bottom: pcmin(7);
   }
 }
 
@@ -126,12 +129,12 @@
   background-color: #d0e7ff;
   @include mq(sp) {
     border-radius: spvw(10);
-    margin-top: spvw(23);
+    margin-top: spvw(20);
     padding-left: spvw(17);
   }
   @include mq(pc) {
     border-radius: pcmin(10);
-    margin-top: pcmin(26);
+    margin-top: pcmin(20);
     padding-left: pcmin(57);
   }
 }
@@ -156,7 +159,7 @@
     @include mq(pc) {
       font-size: pcmin(18);
       padding-top: pcmin(28);
-      padding-bottom: pcmin(28);
+      padding-bottom: pcmin(31);
       line-height: 1;
     }
   }
@@ -206,7 +209,7 @@
       line-height: 1.4;
 
       & ul li {
-        margin-top: spvw(11);
+        margin-top: spvw(9);
       }
     }
     @include mq(pc) {
@@ -220,8 +223,110 @@
       }
 
       & ul li {
-        margin-top: pcmin(11);
+        margin-top: pcmin(9);
       }
+    }
+  }
+}
+
+// アコーディオン二枚目
+.details__conainer--second {
+  margin-inline: auto;
+  @include mq(sp) {
+    width: spvw(320);
+    margin-top: spvw(35);
+  }
+  @include mq(pc) {
+    width: pcmin(1000);
+    margin-top: pcmin(105);
+  }
+}
+
+// 二枚目のタブアイコン
+.details__conainer--second .tab__icon {
+  background-color: #000;
+  display: block;
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    transform: rotate(90deg);
+    transition: transform 0.6s;
+  }
+  @include mq(sp) {
+    width: spvw(14);
+    height: spvw(3);
+    margin-right: spvw(23);
+  }
+  @include mq(pc) {
+    width: pcmin(15);
+    height: pcmin(3);
+    margin-right: pcmin(28);
+    margin-bottom: rem(3);
+  }
+}
+
+.active .tab__icon::before {
+  transform: none;
+}
+
+// アコーディオン二枚目のパネル
+.details__conainer--second .panel__container {
+  @include mq(sp) {
+    padding-top: spvw(11);
+    padding-bottom: spvw(28);
+  }
+}
+
+// アコーディオン二枚目の中身
+.details__graph {
+  @include mq(sp) {
+    padding-bottom: 0px;
+  }
+  & th {
+    font-weight: bold;
+    text-align: left;
+    vertical-align: top;
+    @include mq(sp) {
+      width: 5.7em;
+      font-size: spvw(17);
+    }
+  }
+
+  & tr {
+    display: block;
+    &:nth-child(2) {
+      @include mq(sp) {
+        padding-top: spvw(13);
+      }
+    }
+  }
+
+  & td {
+    font-weight: bold;
+    color: #000;
+    @include mq(sp) {
+      font-size: spvw(15);
+    }
+    & .details__free {
+      color: #1989ff;
+      @include mq(sp) {
+        font-size: spvw(17);
+      }
+    }
+  }
+
+  & td {
+    margin-left: 5px;
+    line-height: 1.59;
+    width: 12em;
+  }
+
+  .details__plan--under {
+    @include mq(sp) {
+      margin-top: spvw(8);
     }
   }
 }
