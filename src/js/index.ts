@@ -146,12 +146,10 @@ const accordionCallback = (index: number, toggle: boolean) => {
   const accordion = accordions[index];
   const tab = tabs[index];
   const inner = accordionInner[index];
+
   if (toggle) {
     tab.classList.toggle("active");
   }
-  // if (tab.getAttribute("data-inner") === "inner") {
-  //   parentAccordion.style.height = `auto`;
-  // }
   if (tab.classList.contains("active")) {
     accordion.style.height = `${inner.clientHeight / 16}rem`;
   } else {
@@ -166,23 +164,32 @@ tabs.forEach((tab, index) => {
   });
 });
 
-// 二重構造のアコーディオンパネルの子要素が開閉した際、親要素の高さを再計算する
+// アコーディオンパネルの高さの再計算プログラム
 
 const resizeDoubleAccordion = (entries: ResizeObserverEntry[]) => {
-  if (!parentAccordion.style.height) return;
   entries.forEach((entry) => {
-    parentAccordion.style.transition = "none";
+    const inner = entry.target as HTMLElement;
+    const panel = inner.parentElement as HTMLElement;
+    if (!panel.style.height) return;
+
+    panel.style.transition = `none`;
+
     requestAnimationFrame(() => {
-      parentAccordion.style.height = `${entry.borderBoxSize[0].blockSize}px`;
+      panel.style.height = `${entry.borderBoxSize[0].blockSize}px`;
     });
     requestAnimationFrame(() => {
-      parentAccordion.style.transition = "";
+      panel.style.transition = ``;
     });
   });
 };
 
+// resizeObserverのイニシャライズ
 const resizeObserver = new ResizeObserver(resizeDoubleAccordion);
-resizeObserver.observe(parentInner);
+
+// resizeObserverの監視対象として各アコーディオンパネルのインナーを監視
+accordionInner.forEach((inner) => {
+  resizeObserver.observe(inner);
+});
 
 // スクロールアニメーションの実装
 
@@ -230,8 +237,6 @@ window.addEventListener("DOMContentLoaded", jsViewPort);
 
 // 画面リサイズイベント
 window.addEventListener("resize", () => {
-  // 各アコーディオンパネルの高さを再計算
-  tabs.forEach((_, index) => accordionCallback(index, false));
   // ハンバーガーメニューを閉じる
   removeMenu();
   // viewportの再計算
@@ -239,6 +244,6 @@ window.addEventListener("resize", () => {
 });
 
 // デバッグ用
-// window.addEventListener("DOMContentLoaded", () => {
-//   tabs.forEach((_, index) => accordionCallback(index, true));
-// });
+window.addEventListener("DOMContentLoaded", () => {
+  tabs.forEach((_, index) => accordionCallback(index, true));
+});
