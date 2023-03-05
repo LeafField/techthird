@@ -1,0 +1,48 @@
+@use "utils" as *;
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include mq(sp) {
+    height: spvw(152);
+  }
+  @include mq(pc) {
+    height: pcmin(316);
+  }
+
+  &__title {
+    @include mq(sp) {
+      margin-top: spvw(43);
+    }
+    @include mq(pc) {
+      margin-top: pcmin(100);
+    }
+    a {
+      display: block;
+      @include mq(sp) {
+        width: spvw(117);
+      }
+      @include mq(pc) {
+        width: pcmin(227);
+      }
+      & img {
+        width: 100%;
+        object-fit: cover;
+        height: auto;
+      }
+    }
+  }
+
+  & small {
+    @include mq(pc) {
+      font-size: pcmin(14);
+      letter-spacing: 0.015em;
+      margin-top: pcmin(33);
+    }
+    @include mq(sp) {
+      font-size: spvw(12);
+      margin-top: spvw(13);
+    }
+  }
+}

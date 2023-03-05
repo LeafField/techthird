@@ -9,6 +9,7 @@
   }
   @include mq(pc) {
     padding-top: pcmin(100);
+    padding-bottom: pcmin(98);
   }
 }
 
@@ -275,8 +276,13 @@
 // アコーディオン二枚目のパネル
 .details__conainer--second .panel__container {
   @include mq(sp) {
-    padding-top: spvw(11);
+    padding-top: spvw(13);
     padding-bottom: spvw(28);
+  }
+  @include mq(pc) {
+    padding-top: pcmin(61);
+    padding-left: pcmin(46);
+    padding-bottom: 72px;
   }
 }
 
@@ -293,6 +299,9 @@
       width: 5.7em;
       font-size: spvw(17);
     }
+    @include mq(pc) {
+      font-size: pcmin(23);
+    }
   }
 
   & tr {
@@ -300,6 +309,9 @@
     &:nth-child(2) {
       @include mq(sp) {
         padding-top: spvw(13);
+      }
+      @include mq(pc) {
+        margin-top: pcmin(15);
       }
     }
   }
@@ -309,24 +321,29 @@
     color: #000;
     @include mq(sp) {
       font-size: spvw(15);
+      margin-left: spvw(5);
+      line-height: 1.59;
+      width: 12em;
+    }
+    @include mq(pc) {
+      font-size: pcmin(18);
+      padding-left: pcmin(150);
+      line-height: 1.44;
     }
     & .details__free {
       color: #1989ff;
       @include mq(sp) {
         font-size: spvw(17);
       }
+      @include mq(pc) {
+        font-size: pcmin(23);
+      }
     }
-  }
-
-  & td {
-    margin-left: 5px;
-    line-height: 1.59;
-    width: 12em;
   }
 
   .details__plan--under {
     @include mq(sp) {
-      margin-top: spvw(8);
+      margin-top: spvw(4);
     }
   }
 }

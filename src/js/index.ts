@@ -238,8 +238,3 @@ window.addEventListener("resize", () => {
   // viewportの再計算
   jsViewPort();
 });
-
-// デバッグ用
-window.addEventListener("DOMContentLoaded", () => {
-  tabs.forEach((_, index) => accordionCallback(index, true));
-});
