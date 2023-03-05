@@ -1,7 +1,7 @@
 {
-  "name": "static_site_webpack_template",
+  "name": "dentatsu",
   "version": "1.0.0",
-  "description": "",
+  "description": "テックアカデミー独習課題上級",
   "main": "index.ts",
   "scripts": {
     "start": "webpack-dev-server --open",
@@ -11,7 +11,7 @@
     "update": "ncu -u",
     "image": "node imagemin.mjs"
   },
-  "author": "",
+  "author": "Youko Tsunoda",
   "license": "ISC",
   "browserslist": [
     "> 0.2%, not dead",
